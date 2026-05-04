@@ -1,11 +1,12 @@
 ---
 import Layout from '~/layouts/Layout.astro';
+import Marquee from '~/components/Marquee.astro';
 
 const heroStrip = [
-  { src: '/img/mw26/hero-01.jpg', alt: 'Asistente de MADE Week en bar Adoro durante MW26', caption: 'MW26 · Adoro' },
-  { src: '/img/mw26/hero-02.jpg', alt: 'Concierto en MADE Week 2026', caption: 'MW26 · Concierto' },
-  { src: '/img/mw26/hero-03.jpg', alt: 'Artista en escenario MW26', caption: 'MW26 · Escenario' },
-  { src: '/img/mw26/hero-04.jpg', alt: 'Comunidad MADE en evento', caption: 'MW26 · Comunidad' },
+  { src: '/img/mw26/hero-01.jpg', alt: 'Asistente de MADE Week en bar Adoro durante MW26' },
+  { src: '/img/mw26/hero-02.jpg', alt: 'Concierto en MADE Week 2026' },
+  { src: '/img/mw26/hero-03.jpg', alt: 'Artista en escenario MW26' },
+  { src: '/img/mw26/hero-04.jpg', alt: 'Comunidad MADE en evento' },
 ];
 
 const recap = [
@@ -14,6 +15,18 @@ const recap = [
   { src: '/img/mw26/hero-07.jpg', alt: 'MADE Week 2026 noche' },
   { src: '/img/mw26/hero-08.jpg', alt: 'MADE Week 2026 cierre' },
 ];
+
+const transport = [
+  { mode: 'Caminando', detail: 'Circuitos compactos de menos de 1 km' },
+  { mode: 'En bici', detail: 'Estacionamientos en cada sede' },
+  { mode: 'Carpooling', detail: 'Comparte ruta con la comunidad' },
+  { mode: 'Camión', detail: 'Las rutas troncales conectan todos los circuitos' },
+];
+
+const marqueeWords = [
+  'Arte', 'Diseño', 'Monterrey', 'Cultura', 'Comunidad',
+  'Circuitos', 'MADE Week', 'Talento', 'Ciudad de 15 minutos',
+];
 ---
 
 <Layout
@@ -21,16 +34,36 @@ const recap = [
   description="MADE es la plataforma cultural que conecta arte, diseño y ciudad en Monterrey. MADE Week en febrero. Conversaciones todo el año."
 >
   <section class="hero">
-    <div class="container">
-      <span class="mono-label mono-label--ink">MADE · Plataforma Cultural · Monterrey, MX</span>
+    <div class="container hero__inner">
+      <div class="hero__meta">
+        <span class="hero__stamp">MADE / 26</span>
+        <span class="hero__stamp">Monterrey, MX</span>
+        <span class="hero__stamp">Plataforma Cultural</span>
+      </div>
+
       <h1 class="hero__title">
-        Arte y diseño<br />que sí pasa en<br />Monterrey.
+        Arte y diseño<br />
+        que sí pasa<br />
+        <span class="hero__title-accent">en Monterrey.</span>
       </h1>
-      <p class="hero__lede">
-        Somos la plataforma cultural que conecta a quien hace con quien quiere ver. MADE Week en febrero. Conversaciones todo el año.
-      </p>
+
+      <div class="hero__bottom">
+        <p class="hero__lede">
+          Somos la plataforma cultural que conecta a quien hace con quien quiere ver. MADE Week en febrero. Conversaciones todo el año.
+        </p>
+        <div class="hero__ctas">
+          <a href="/made-week/2026" class="btn btn--accent">Ver MW26 →</a>
+          <a href="/empresas" class="btn btn--ghost-light">Para empresas →</a>
+        </div>
+      </div>
     </div>
   </section>
+
+  <Marquee
+    items={marqueeWords}
+    speed={45}
+    size="lg"
+  />
 
   <section class="strip" aria-label="Galería MADE Week 2026">
     <div class="container container--wide">
@@ -38,7 +71,6 @@ const recap = [
         {heroStrip.map((p, i) => (
           <figure class={`strip__cell strip__cell--${i + 1}`}>
             <img src={p.src} alt={p.alt} loading="lazy" decoding="async" />
-            <figcaption class="mono-label">{p.caption}</figcaption>
           </figure>
         ))}
       </div>
@@ -47,41 +79,67 @@ const recap = [
 
   <section class="proof">
     <div class="container">
-      <span class="mono-label mono-label--ink">MW26 · 19 FEB - 1 MAR 2026</span>
-      <h2 class="proof__heading">La segunda edición<br />nos quedó así.</h2>
-      <div class="proof__grid">
-        <div class="proof__item">
-          <span class="proof__num">+7,000</span>
-          <span class="mono-label">Personas</span>
-        </div>
-        <div class="proof__item">
-          <span class="proof__num">+70</span>
-          <span class="mono-label">Eventos</span>
-        </div>
-        <div class="proof__item">
-          <span class="proof__num">+80</span>
-          <span class="mono-label">Espacios</span>
-        </div>
-        <div class="proof__item">
-          <span class="proof__num">7</span>
-          <span class="mono-label">Circuitos</span>
-        </div>
-        <div class="proof__item">
-          <span class="proof__num">10</span>
-          <span class="mono-label">Días</span>
-        </div>
+      <div class="proof__head">
+        <span class="mono-label mono-label--ink">MW26 · 19 FEB - 1 MAR 2026</span>
+        <h2 class="proof__heading">La segunda edición<br />nos quedó así.</h2>
       </div>
+    </div>
+
+    <div class="container container--wide">
+      <ul class="proof__grid">
+        <li class="proof__item proof__item--blue">
+          <span class="proof__num">+7,000</span>
+          <span class="proof__label">Personas</span>
+        </li>
+        <li class="proof__item proof__item--magenta">
+          <span class="proof__num">+70</span>
+          <span class="proof__label">Eventos</span>
+        </li>
+        <li class="proof__item proof__item--lime">
+          <span class="proof__num">+80</span>
+          <span class="proof__label">Espacios</span>
+        </li>
+        <li class="proof__item proof__item--orange">
+          <span class="proof__num">7</span>
+          <span class="proof__label">Circuitos</span>
+        </li>
+        <li class="proof__item proof__item--pink">
+          <span class="proof__num">10</span>
+          <span class="proof__label">Días</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
       <a href="/made-week/2026" class="proof__link">Cómo se vivió MW26 →</a>
     </div>
   </section>
 
   <section class="recap">
-    <div class="container container--wide">
-      <div class="recap__grid">
-        {recap.map((p) => (
-          <img src={p.src} alt={p.alt} loading="lazy" decoding="async" class="recap__img" />
+    <div class="recap__grid">
+      {recap.map((p) => (
+        <img src={p.src} alt={p.alt} loading="lazy" decoding="async" class="recap__img" />
+      ))}
+    </div>
+  </section>
+
+  <section class="transport">
+    <div class="container">
+      <span class="mono-label mono-label--ink">Cómo se vive</span>
+      <h2 class="transport__heading">Porque la cultura<br />también se mueve.</h2>
+      <p class="transport__lede">
+        Diseñamos MADE Week en circuitos compactos para que recorrer la ciudad sea parte de la experiencia.
+      </p>
+
+      <ul class="transport__list">
+        {transport.map((t, i) => (
+          <li class="transport__item">
+            <span class="transport__num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="transport__mode">{t.mode}</span>
+            <span class="transport__detail">{t.detail}</span>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   </section>
 
@@ -89,91 +147,206 @@ const recap = [
     <div class="container">
       <span class="mono-label mono-label--ink">Qué hacemos</span>
       <h2 class="verticals__heading">Dos frentes,<br />una misma idea.</h2>
-      <div class="verticals__grid">
-        <article class="vertical vertical--festival">
-          <span class="mono-label">Festival</span>
-          <h3>MADE Week</h3>
-          <p>Una semana de arte y diseño en circuitos por la ciudad. La edición 2027 ya se está cocinando.</p>
-          <a href="/made-week" class="vertical__link">Ver MADE Week →</a>
-        </article>
 
-        <article class="vertical vertical--work">
-          <span class="mono-label">Job Board</span>
-          <h3>MADE Work</h3>
-          <p>El epicentro del talento creativo en México. Empleos, perfiles y oportunidades para la comunidad.</p>
-          <a href="https://work.made-mx.com" class="vertical__link" rel="noopener">Ver MADE Work ↗</a>
-        </article>
+      <div class="verticals__grid">
+        <a href="/made-week" class="vertical vertical--festival">
+          <div class="vertical__top">
+            <span class="vertical__tag">Festival</span>
+            <span class="vertical__arrow">→</span>
+          </div>
+          <h3 class="vertical__name">MADE<br />Week</h3>
+          <p class="vertical__desc">Una semana de arte y diseño en circuitos por la ciudad. La edición 2027 ya se está cocinando.</p>
+          <span class="vertical__cta">Ver MADE Week</span>
+        </a>
+
+        <a href="https://work.made-mx.com" rel="noopener" class="vertical vertical--work">
+          <div class="vertical__top">
+            <span class="vertical__tag">Job Board</span>
+            <span class="vertical__arrow">↗</span>
+          </div>
+          <h3 class="vertical__name">MADE<br />Work</h3>
+          <p class="vertical__desc">El epicentro del talento creativo en México. Empleos, perfiles y oportunidades para la comunidad.</p>
+          <span class="vertical__cta">Ver MADE Work</span>
+        </a>
       </div>
     </div>
   </section>
 
+  <Marquee
+    items={['Heineken', 'Tec de Monterrey · EAAD', 'SlimPop', 'Salón Reina', 'Los Patrones', 'Sound&Vision', 'Rumba Rebel', 'Lyto', 'Laboratorio Arte AC']}
+    separator="·"
+    speed={60}
+    size="sm"
+  />
+
   <section class="biz">
-    <div class="container">
-      <div class="biz__inner">
-        <span class="mono-label mono-label--ink">Para empresas</span>
-        <h2 class="biz__title">¿Eres una empresa<br />que quiere ser parte<br />de la cultura?</h2>
-        <p class="biz__lede">
-          Diseñamos eventos, obras y programas culturales para marcas que quieren dejar algo, no solo aparecer.
-        </p>
-        <a href="/empresas" class="biz__link">Conoce qué hacemos para empresas →</a>
-      </div>
+    <div class="container biz__inner">
+      <span class="mono-label mono-label--ink">Para empresas</span>
+      <h2 class="biz__title">¿Eres una empresa<br />que quiere ser parte<br />de la cultura?</h2>
+      <p class="biz__lede">
+        Diseñamos eventos, obras y programas culturales para marcas que quieren dejar algo, no solo aparecer.
+      </p>
+      <a href="/empresas" class="btn btn--inverse">Conoce qué hacemos para empresas →</a>
     </div>
   </section>
 
   <section class="newsletter">
-    <div class="container">
+    <div class="container newsletter__inner">
       <span class="mono-label mono-label--ink">Newsletter</span>
       <h2 class="newsletter__title">Una vez al mes.<br />Cero ruido.</h2>
       <p class="newsletter__lede">
         Lo que pasa, lo que viene y a quién deberías estar siguiendo en la escena cultural de Monterrey. <strong>+1,000 personas</strong> ya están adentro.
       </p>
-      <a href="/newsletter" class="newsletter__cta">Suscribirme →</a>
+      <a href="/newsletter" class="btn btn--accent">Suscribirme →</a>
     </div>
   </section>
 </Layout>
 
 <style>
+  /* ===== HERO — fondo negro, type masivo, alto contraste ===== */
   .hero {
-    background: var(--bg);
-    padding-block: clamp(80px, 14vh, 200px) clamp(40px, 6vh, 80px);
+    background: var(--made-ink);
+    color: var(--made-bg);
+    padding-block: clamp(60px, 10vh, 120px) clamp(60px, 10vh, 120px);
+    min-height: 92vh;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 60% 80% at 80% 10%, color-mix(in oklab, var(--made-blue) 35%, transparent), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 10% 90%, color-mix(in oklab, var(--made-magenta) 25%, transparent), transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .hero__stamp {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    color: color-mix(in oklab, var(--made-bg) 70%, transparent);
+    padding: 6px 12px;
+    border: 1px solid color-mix(in oklab, var(--made-bg) 30%, transparent);
   }
 
   .hero__title {
-    font-size: var(--text-hero);
-    line-height: var(--lh-tight);
-    letter-spacing: var(--tr-display);
-    margin-block: 24px 32px;
+    font-size: clamp(64px, 13vw + 8px, 240px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    color: var(--made-bg);
+    font-weight: 700;
+    margin-block: 16px 0;
+  }
+
+  .hero__title-accent {
+    color: var(--made-blue);
+    background: linear-gradient(180deg, var(--made-blue) 0%, color-mix(in oklab, var(--made-blue) 70%, var(--made-magenta)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    border-top: 1px solid color-mix(in oklab, var(--made-bg) 20%, transparent);
+    padding-top: 32px;
+    margin-top: auto;
   }
 
   .hero__lede {
     font-size: var(--text-lg);
+    color: color-mix(in oklab, var(--made-bg) 80%, transparent);
     max-width: 38ch;
-    color: var(--fg-soft);
   }
 
+  .hero__ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* ===== Botones ===== */
+  .btn {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    padding: 14px 22px;
+    display: inline-block;
+    transition: background var(--t-fast) var(--ease-out), color var(--t-fast) var(--ease-out), transform var(--t-fast) var(--ease-out);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn--accent {
+    background: var(--made-blue);
+    color: var(--made-bg);
+  }
+  .btn--accent:hover {
+    background: var(--made-blue-soft);
+  }
+  .btn--ghost-light {
+    border: 1px solid color-mix(in oklab, var(--made-bg) 60%, transparent);
+    color: var(--made-bg);
+  }
+  .btn--ghost-light:hover {
+    background: color-mix(in oklab, var(--made-bg) 12%, transparent);
+  }
+  .btn--inverse {
+    background: var(--made-bg);
+    color: var(--made-ink);
+  }
+  .btn--inverse:hover {
+    background: var(--made-bg-soft);
+  }
+
+  /* ===== Strip ===== */
   .strip {
-    padding-block: 0 clamp(60px, 8vh, 100px);
+    padding-block: clamp(40px, 6vh, 80px) 0;
   }
-
   .strip__grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: minmax(260px, 36vh);
-    gap: 16px;
+    grid-auto-rows: minmax(280px, 42vh);
+    gap: 12px;
   }
-
   .strip__cell {
     margin: 0;
     overflow: hidden;
     background: var(--made-ink);
-    position: relative;
   }
-
   .strip__cell--1 { grid-column: 1 / span 5; grid-row: 1 / span 2; }
   .strip__cell--2 { grid-column: 6 / span 4; grid-row: 1 / span 1; }
   .strip__cell--3 { grid-column: 6 / span 4; grid-row: 2 / span 1; }
   .strip__cell--4 { grid-column: 10 / span 3; grid-row: 1 / span 2; }
-
   .strip__cell img {
     width: 100%;
     height: 100%;
@@ -181,65 +354,96 @@ const recap = [
     display: block;
     transition: transform var(--t-slow) var(--ease-out);
   }
-
   .strip__cell:hover img {
-    transform: scale(1.03);
+    transform: scale(1.04);
   }
 
-  .strip__cell figcaption {
-    position: absolute;
-    left: 16px;
-    bottom: 16px;
-    color: var(--made-bg);
-    background: color-mix(in oklab, var(--made-ink) 60%, transparent);
-    padding: 6px 10px;
-    backdrop-filter: blur(4px);
-  }
-
+  /* ===== Proof — stats con bloques de color ===== */
   .proof {
     background: var(--bg-alt);
+    padding-block: clamp(80px, 12vh, 160px);
   }
-
+  .proof__head {
+    margin-bottom: 56px;
+  }
   .proof__heading {
-    font-size: var(--text-2xl);
-    margin-block: 16px 40px;
-    max-width: 18ch;
+    font-size: clamp(36px, 5.5vw, 72px);
+    line-height: var(--lh-tight);
+    margin-top: 16px;
+    max-width: 16ch;
+    letter-spacing: -0.02em;
   }
-
   .proof__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 32px 24px;
-    margin-block: 24px 40px;
-    border-top: 1px solid var(--made-line);
-    padding-top: 32px;
+    gap: 0;
   }
-
   .proof__item {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 32px 28px;
+    aspect-ratio: 1 / 1.15;
+    color: var(--made-ink);
   }
-
+  .proof__item--blue {
+    background: var(--made-blue);
+    color: var(--made-bg);
+  }
+  .proof__item--magenta {
+    background: var(--made-magenta);
+    color: var(--made-bg);
+  }
+  .proof__item--lime {
+    background: var(--made-lime);
+    color: var(--made-ink);
+  }
+  .proof__item--orange {
+    background: var(--made-orange);
+    color: var(--made-ink);
+  }
+  .proof__item--pink {
+    background: var(--made-pink);
+    color: var(--made-ink);
+  }
   .proof__num {
-    font-family: var(--font-sans);
     font-weight: 700;
-    font-size: var(--text-2xl);
-    line-height: 1;
-    color: var(--made-blue);
+    font-size: clamp(48px, 6.5vw, 96px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+  .proof__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+  }
+  .proof__link {
+    display: inline-block;
+    margin-top: 40px;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 4px;
   }
 
+  /* ===== Recap full bleed ===== */
   .recap {
     padding-block: 0;
   }
-
   .recap__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 4px;
     aspect-ratio: 16 / 6;
+    width: 100%;
   }
-
   .recap__img {
     width: 100%;
     height: 100%;
@@ -247,130 +451,197 @@ const recap = [
     display: block;
   }
 
-  .verticals__heading {
-    font-size: var(--text-2xl);
-    margin-block: 16px 40px;
-    max-width: 22ch;
+  /* ===== Transporte ===== */
+  .transport {
+    background: var(--bg);
+    padding-block: clamp(80px, 12vh, 160px);
+  }
+  .transport__heading {
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: var(--lh-tight);
+    margin-block: 16px 24px;
+    letter-spacing: -0.02em;
+  }
+  .transport__lede {
+    font-size: var(--text-lg);
+    color: var(--fg-soft);
+    max-width: 50ch;
+    margin-bottom: 56px;
+  }
+  .transport__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--made-line);
+  }
+  .transport__item {
+    display: grid;
+    grid-template-columns: 60px 1fr 2fr;
+    gap: 32px;
+    align-items: baseline;
+    padding-block: 28px;
+    border-bottom: 1px solid color-mix(in oklab, var(--fg) 25%, transparent);
+    transition: background var(--t-base) var(--ease-out), padding var(--t-base) var(--ease-out);
+  }
+  .transport__item:hover {
+    background: color-mix(in oklab, var(--made-blue) 6%, transparent);
+    padding-inline: 16px;
+  }
+  .transport__num {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    color: var(--fg-mute);
+  }
+  .transport__mode {
+    font-size: clamp(28px, 3.5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .transport__detail {
+    font-size: var(--text-base);
+    color: var(--fg-soft);
   }
 
+  /* ===== Verticals ===== */
+  .verticals {
+    background: var(--bg-alt);
+    padding-block: clamp(80px, 12vh, 160px);
+  }
+  .verticals__heading {
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: var(--lh-tight);
+    margin-block: 16px 56px;
+    letter-spacing: -0.02em;
+  }
   .verticals__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
-
   .vertical {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 32px;
-    background: var(--bg-alt);
-    border-top: 4px solid var(--made-line);
+    gap: 24px;
+    padding: 40px;
+    min-height: 380px;
     transition: transform var(--t-base) var(--ease-out);
+    color: var(--made-ink);
   }
-
-  .vertical--festival {
-    border-top-color: var(--made-magenta);
-  }
-
-  .vertical--work {
-    border-top-color: var(--made-blue);
-  }
-
   .vertical:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
   }
-
-  .vertical h3 {
+  .vertical--festival {
+    background: var(--made-magenta);
+    color: var(--made-bg);
+  }
+  .vertical--work {
+    background: var(--made-blue);
+    color: var(--made-bg);
+  }
+  .vertical__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .vertical__tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    padding: 6px 12px;
+    border: 1px solid currentColor;
+  }
+  .vertical__arrow {
     font-size: var(--text-xl);
   }
-
-  .vertical p {
-    color: var(--fg-soft);
-    flex: 1;
+  .vertical__name {
+    font-size: clamp(48px, 6vw, 88px);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-top: auto;
+    color: inherit;
   }
-
-  .vertical__link {
+  .vertical__desc {
+    font-size: var(--text-base);
+    max-width: 38ch;
+    color: color-mix(in oklab, currentColor 85%, transparent);
+  }
+  .vertical__cta {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: var(--tr-mono-label);
     border-bottom: 1px solid currentColor;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
     align-self: flex-start;
-    color: var(--made-blue);
   }
 
+  /* ===== Biz ===== */
   .biz {
     background: var(--made-blue);
     color: var(--made-bg);
+    padding-block: clamp(80px, 12vh, 160px);
   }
-
   .biz :global(.mono-label--ink) {
     color: var(--made-bg);
   }
-
   .biz__inner {
-    max-width: 720px;
+    max-width: 800px;
   }
-
   .biz__title {
     color: var(--made-bg);
-    margin-block: 24px 24px;
-    font-size: var(--text-3xl);
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: var(--lh-tight);
+    margin-block: 16px 24px;
+    letter-spacing: -0.02em;
   }
-
   .biz__lede {
     color: color-mix(in oklab, var(--made-bg) 88%, transparent);
     font-size: var(--text-lg);
     margin-bottom: 32px;
+    max-width: 56ch;
   }
 
-  .biz__link {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: var(--tr-mono-label);
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 2px;
-  }
-
-  .newsletter__title {
-    margin-block: 24px 16px;
-  }
-
-  .newsletter__lede {
-    margin-bottom: 24px;
-    color: var(--fg-soft);
-    font-size: var(--text-lg);
-  }
-
-  .newsletter__cta {
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: var(--tr-mono-label);
+  /* ===== Newsletter ===== */
+  .newsletter {
     background: var(--made-ink);
     color: var(--made-bg);
-    padding: 14px 24px;
-    display: inline-block;
-    transition: background var(--t-fast) var(--ease-out);
+    padding-block: clamp(80px, 12vh, 160px);
   }
-
-  .newsletter__cta:hover {
-    background: var(--made-blue);
+  .newsletter :global(.mono-label--ink) {
+    color: var(--made-bg);
   }
-
-  .proof__link {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: var(--tr-mono-label);
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 2px;
+  .newsletter__inner {
+    max-width: 720px;
+  }
+  .newsletter__title {
+    color: var(--made-bg);
+    font-size: clamp(48px, 7vw, 112px);
+    line-height: 0.95;
+    margin-block: 16px 24px;
+    letter-spacing: -0.025em;
+  }
+  .newsletter__lede {
+    color: color-mix(in oklab, var(--made-bg) 80%, transparent);
+    font-size: var(--text-lg);
+    margin-bottom: 32px;
+    max-width: 56ch;
+  }
+  .newsletter__lede strong {
+    color: var(--made-bg);
   }
 
   @media (max-width: 900px) {
+    .hero {
+      min-height: auto;
+      padding-block: 80px;
+    }
+    .hero__title {
+      font-size: clamp(56px, 14vw, 96px);
+    }
     .strip__grid {
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: minmax(220px, 30vh);
@@ -388,6 +659,13 @@ const recap = [
     }
     .verticals__grid {
       grid-template-columns: 1fr;
+    }
+    .transport__item {
+      grid-template-columns: 40px 1fr;
+      gap: 16px;
+    }
+    .transport__detail {
+      grid-column: 2;
     }
   }
 </style>

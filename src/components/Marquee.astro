@@ -1,0 +1,108 @@
+---
+interface Props {
+  items: string[];
+  separator?: string;
+  speed?: number;
+  invert?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const {
+  items,
+  separator = '·',
+  speed = 40,
+  invert = false,
+  size = 'md',
+} = Astro.props;
+
+const repeated = [...items, ...items, ...items];
+---
+
+<div class={`marquee marquee--${size} ${invert ? 'marquee--invert' : ''}`} aria-hidden="true">
+  <div class="marquee__track" style={`--marquee-duration: ${speed}s;`}>
+    {repeated.map((item) => (
+      <span class="marquee__item">
+        {item}
+        <span class="marquee__sep" aria-hidden="true">{separator}</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    width: 100%;
+    border-block: 1px solid var(--made-line);
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  .marquee--invert {
+    background: var(--made-ink);
+    color: var(--made-bg);
+    border-block-color: var(--made-ink);
+  }
+
+  .marquee__track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+    width: max-content;
+    animation: marquee-scroll var(--marquee-duration, 40s) linear infinite;
+    padding-block: 14px;
+  }
+
+  .marquee--lg .marquee__track {
+    padding-block: 28px;
+  }
+
+  .marquee--sm .marquee__track {
+    padding-block: 8px;
+  }
+
+  .marquee__item {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    font-size: var(--text-2xl);
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(20px, 3vw, 48px);
+    padding-inline: clamp(20px, 3vw, 48px);
+  }
+
+  .marquee--lg .marquee__item {
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 1;
+  }
+
+  .marquee--sm .marquee__item {
+    font-size: var(--text-base);
+    font-family: var(--font-mono);
+    font-weight: 400;
+    letter-spacing: var(--tr-mono-label);
+  }
+
+  .marquee__sep {
+    opacity: 0.4;
+    font-weight: 400;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% / 3));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track {
+      animation: none;
+    }
+  }
+</style>

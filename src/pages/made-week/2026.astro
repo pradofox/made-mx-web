@@ -1,13 +1,14 @@
 ---
 import Layout from '~/layouts/Layout.astro';
+import Marquee from '~/components/Marquee.astro';
 
 const stats = [
-  { num: '10', label: 'Días' },
-  { num: '+70', label: 'Eventos' },
-  { num: '+80', label: 'Espacios' },
-  { num: '+7,000', label: 'Asistencias' },
-  { num: '7', label: 'Circuitos' },
-  { num: '50+', label: 'Voluntarios' },
+  { num: '+7,000', label: 'Personas', tone: 'blue' },
+  { num: '+70', label: 'Eventos', tone: 'magenta' },
+  { num: '+80', label: 'Espacios', tone: 'lime' },
+  { num: '7', label: 'Circuitos', tone: 'orange' },
+  { num: '10', label: 'Días', tone: 'pink' },
+  { num: '50+', label: 'Voluntarios', tone: 'cyan' },
 ];
 
 const reach = [
@@ -18,13 +19,13 @@ const reach = [
 ];
 
 const circuits = [
-  'Casco Urbano',
-  'Centrito Valle',
-  'Garza Sada',
-  'Obispado',
-  'MTY Centro',
-  'Tampiquito',
-  'Cordillera',
+  { name: 'Casco Urbano', detail: 'Centro histórico, galerías y arquitectura.' },
+  { name: 'Centrito Valle', detail: 'Diseño contemporáneo y barrio reinventado.' },
+  { name: 'Garza Sada', detail: 'Universidades, estudios y energía joven.' },
+  { name: 'Obispado', detail: 'Vista, arte público y carácter residencial-cultural.' },
+  { name: 'MTY Centro', detail: 'Lo institucional y lo emergente conviviendo.' },
+  { name: 'Tampiquito', detail: 'Lo íntimo, lo experimental, lo que apenas empieza.' },
+  { name: 'Cordillera', detail: 'Paisaje urbano y talleres que abrazan la sierra.' },
 ];
 
 const sponsors = [
@@ -73,14 +74,33 @@ const gallery = [
   description="MW26 pasó por 7 circuitos de Monterrey con +70 eventos y +7,000 asistencias. Esto fue lo que vivimos."
 >
   <section class="hero">
-    <div class="container">
-      <span class="mono-label mono-label--ink">MW26 · 19 FEB - 1 MAR 2026 · Archivo</span>
-      <h1 class="hero__title">10 días.<br />+70 eventos.<br />+7,000 personas.</h1>
-      <p class="hero__lede">
-        Pasamos por 7 circuitos de la ciudad. Esto fue lo que vivimos.
-      </p>
+    <div class="container hero__inner">
+      <div class="hero__meta">
+        <span class="hero__stamp">MW26</span>
+        <span class="hero__stamp">19 FEB - 1 MAR 2026</span>
+        <span class="hero__stamp">Archivo</span>
+      </div>
+
+      <h1 class="hero__title">
+        10 días.<br />
+        +70 eventos.<br />
+        <span class="hero__title-accent">+7,000 personas.</span>
+      </h1>
+
+      <div class="hero__bottom">
+        <p class="hero__lede">
+          Pasamos por 7 circuitos de Monterrey con la comunidad creativa más activa de la ciudad. Esto fue lo que vivimos.
+        </p>
+        <a href="#galeria" class="btn btn--accent">Ver galería →</a>
+      </div>
     </div>
   </section>
+
+  <Marquee
+    items={['MW26', '19 FEB', '1 MAR', '7 Circuitos', '+70 Eventos', '+7,000 Personas', 'Monterrey']}
+    speed={50}
+    size="lg"
+  />
 
   <section class="cover">
     <img src="/img/mw26/hero-01.jpg" alt="Comunidad MADE Week 2026 en Adoro" loading="eager" />
@@ -88,16 +108,20 @@ const gallery = [
 
   <section class="stats">
     <div class="container">
-      <span class="mono-label mono-label--ink">Resumen</span>
-      <h2 class="stats__heading">Lo que pasó en febrero.</h2>
-      <div class="stats__grid">
-        {stats.map(({ num, label }) => (
-          <div class="stat">
-            <span class="stat__num">{num}</span>
-            <span class="mono-label">{label}</span>
-          </div>
-        ))}
+      <div class="stats__head">
+        <span class="mono-label mono-label--ink">Resumen</span>
+        <h2 class="stats__heading">Lo que pasó<br />en febrero.</h2>
       </div>
+    </div>
+    <div class="container container--wide">
+      <ul class="stats__grid">
+        {stats.map(({ num, label, tone }) => (
+          <li class={`stat stat--${tone}`}>
+            <span class="stat__num">{num}</span>
+            <span class="stat__label">{label}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -105,22 +129,26 @@ const gallery = [
     <div class="container">
       <span class="mono-label mono-label--ink">Alcance digital</span>
       <h2 class="reach__heading">Engagement real,<br />no audiencia inflada.</h2>
-      <div class="reach__grid">
+      <ul class="reach__grid">
         {reach.map(({ num, label }) => (
-          <div class="reach__item">
+          <li class="reach__item">
             <span class="reach__num">{num}</span>
             <span class="mono-label">{label}</span>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
       <p class="reach__note">
         21.8% de engagement es 7 a 20 veces el promedio de la industria. Cuando MADE recomienda algo, la gente lo ve.
       </p>
     </div>
   </section>
 
-  <section class="gallery">
+  <section class="gallery" id="galeria">
     <div class="container container--wide">
+      <div class="gallery__head">
+        <span class="mono-label mono-label--ink">Galería MW26</span>
+        <h2 class="gallery__heading">Cómo se vivió.</h2>
+      </div>
       <div class="gallery__grid">
         {gallery.map((src, i) => (
           <figure class={`gallery__cell gallery__cell--${i + 1}`}>
@@ -138,105 +166,220 @@ const gallery = [
       <ul class="circuits__list">
         {circuits.map((c, i) => (
           <li class="circuits__item">
-            <span class="mono-label">0{i + 1}</span>
-            <span class="circuits__name">{c}</span>
+            <span class="circuits__num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="circuits__name">{c.name}</span>
+            <span class="circuits__detail">{c.detail}</span>
           </li>
         ))}
       </ul>
     </div>
   </section>
 
-  <section class="sponsors">
+  <section class="sponsors-block">
     <div class="container">
       <span class="mono-label mono-label--ink">Patrocinadores y aliados</span>
-      <h2 class="sponsors__heading">Marcas que apostaron por la cultura.</h2>
-      <ul class="sponsors__list">
-        {sponsors.map((s) => <li>{s}</li>)}
-      </ul>
+      <h2 class="sponsors-block__heading">Marcas que apostaron<br />por la cultura.</h2>
     </div>
   </section>
 
-  <section class="venues">
+  <Marquee items={sponsors} speed={55} size="md" invert />
+
+  <section class="venues-block">
     <div class="container">
       <span class="mono-label mono-label--ink">Espacios destacados</span>
-      <h2 class="venues__heading">Donde se vivió.</h2>
-      <ul class="venues__list">
+      <h2 class="venues-block__heading">Donde se vivió.</h2>
+      <ul class="venues-block__list">
         {venues.map((v) => <li>{v}</li>)}
       </ul>
     </div>
   </section>
 
   <section class="cta">
-    <div class="container">
+    <div class="container cta__inner">
       <span class="mono-label mono-label--ink">Lo que viene</span>
       <h2 class="cta__title">MW27<br />ya se cocina.</h2>
       <p class="cta__lede">
         Suscríbete al newsletter para enterarte de la agenda antes que nadie. ¿Eres marca? Tenemos esquemas de patrocinio listos.
       </p>
       <div class="cta__actions">
-        <a href="/newsletter" class="cta__btn cta__btn--primary">Suscribirme al newsletter →</a>
-        <a href="/empresas" class="cta__btn cta__btn--ghost">Patrocinar MW27 →</a>
+        <a href="/newsletter" class="btn btn--accent">Suscribirme al newsletter →</a>
+        <a href="/empresas" class="btn btn--ghost-light">Patrocinar MW27 →</a>
       </div>
     </div>
   </section>
 </Layout>
 
 <style>
+  /* ===== HERO ===== */
   .hero {
-    padding-block: clamp(60px, 10vh, 140px) clamp(40px, 6vh, 80px);
+    background: var(--made-ink);
+    color: var(--made-bg);
+    padding-block: clamp(60px, 10vh, 120px);
+    min-height: 80vh;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 60% 80% at 80% 10%, color-mix(in oklab, var(--made-magenta) 30%, transparent), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 10% 90%, color-mix(in oklab, var(--made-blue) 30%, transparent), transparent 60%);
+    pointer-events: none;
+  }
+  .hero__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .hero__stamp {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    color: color-mix(in oklab, var(--made-bg) 70%, transparent);
+    padding: 6px 12px;
+    border: 1px solid color-mix(in oklab, var(--made-bg) 30%, transparent);
   }
   .hero__title {
-    font-size: var(--text-hero);
-    line-height: var(--lh-tight);
-    letter-spacing: var(--tr-display);
-    margin-block: 24px 32px;
+    font-size: clamp(56px, 11vw + 8px, 200px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    color: var(--made-bg);
+    font-weight: 700;
+    margin-block: 16px 0;
+  }
+  .hero__title-accent {
+    background: linear-gradient(180deg, var(--made-magenta) 0%, var(--made-orange) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    border-top: 1px solid color-mix(in oklab, var(--made-bg) 20%, transparent);
+    padding-top: 32px;
+    margin-top: auto;
   }
   .hero__lede {
     font-size: var(--text-lg);
-    color: var(--fg-soft);
-    max-width: 36ch;
+    color: color-mix(in oklab, var(--made-bg) 80%, transparent);
+    max-width: 42ch;
   }
 
+  /* ===== Botones (replicados de home, podríamos extraer luego) ===== */
+  .btn {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    padding: 14px 22px;
+    display: inline-block;
+    transition: background var(--t-fast) var(--ease-out), color var(--t-fast) var(--ease-out), transform var(--t-fast) var(--ease-out);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn--accent {
+    background: var(--made-blue);
+    color: var(--made-bg);
+  }
+  .btn--accent:hover {
+    background: var(--made-blue-soft);
+  }
+  .btn--ghost-light {
+    border: 1px solid color-mix(in oklab, var(--made-bg) 60%, transparent);
+    color: var(--made-bg);
+  }
+  .btn--ghost-light:hover {
+    background: color-mix(in oklab, var(--made-bg) 12%, transparent);
+  }
+
+  /* ===== Cover ===== */
   .cover {
     padding: 0;
   }
   .cover img {
     width: 100%;
-    height: clamp(360px, 64vh, 720px);
+    height: clamp(360px, 70vh, 800px);
     object-fit: cover;
     display: block;
   }
 
+  /* ===== Stats — bloques de color ===== */
   .stats {
     background: var(--bg-alt);
+    padding-block: clamp(80px, 12vh, 160px);
+  }
+  .stats__head {
+    margin-bottom: 56px;
   }
   .stats__heading {
-    font-size: var(--text-2xl);
-    margin-block: 16px 40px;
-    max-width: 18ch;
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: var(--lh-tight);
+    margin-top: 16px;
+    max-width: 16ch;
+    letter-spacing: -0.02em;
   }
   .stats__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 32px 24px;
-    border-top: 1px solid var(--made-line);
-    padding-top: 32px;
+    gap: 0;
   }
   .stat {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 32px 28px;
+    aspect-ratio: 1 / 1.15;
+    color: var(--made-ink);
   }
+  .stat--blue { background: var(--made-blue); color: var(--made-bg); }
+  .stat--magenta { background: var(--made-magenta); color: var(--made-bg); }
+  .stat--lime { background: var(--made-lime); }
+  .stat--orange { background: var(--made-orange); }
+  .stat--pink { background: var(--made-pink); }
+  .stat--cyan { background: var(--made-cyan); color: var(--made-bg); }
   .stat__num {
     font-weight: 700;
-    font-size: var(--text-2xl);
-    line-height: 1;
-    color: var(--made-blue);
+    font-size: clamp(40px, 5vw, 80px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+  .stat__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
   }
 
+  /* ===== Reach ===== */
   .reach {
     background: var(--made-blue);
     color: var(--made-bg);
+    padding-block: clamp(80px, 12vh, 160px);
   }
   .reach :global(.mono-label),
   .reach :global(.mono-label--ink) {
@@ -247,41 +390,58 @@ const gallery = [
   }
   .reach__heading {
     color: var(--made-bg);
-    font-size: var(--text-2xl);
-    margin-block: 16px 40px;
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: var(--lh-tight);
+    margin-block: 16px 56px;
+    letter-spacing: -0.02em;
   }
   .reach__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 32px 24px;
+    gap: 24px;
     border-top: 1px solid color-mix(in oklab, var(--made-bg) 25%, transparent);
-    padding-top: 32px;
+    padding-top: 40px;
   }
   .reach__item {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
   }
   .reach__num {
     font-weight: 700;
-    font-size: var(--text-2xl);
-    line-height: 1;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.9;
     color: var(--made-bg);
+    letter-spacing: -0.02em;
   }
   .reach__note {
-    margin-top: 32px;
-    max-width: 60ch;
+    margin-top: 56px;
+    max-width: 64ch;
     font-size: var(--text-lg);
     color: color-mix(in oklab, var(--made-bg) 88%, transparent);
   }
 
+  /* ===== Gallery ===== */
   .gallery {
-    padding-block: clamp(40px, 6vh, 80px);
+    background: var(--bg);
+    padding-block: clamp(80px, 12vh, 160px);
+  }
+  .gallery__head {
+    margin-bottom: 48px;
+  }
+  .gallery__heading {
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: var(--lh-tight);
+    margin-top: 16px;
+    letter-spacing: -0.02em;
   }
   .gallery__grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-auto-rows: minmax(180px, 28vh);
+    grid-auto-rows: minmax(180px, 30vh);
     gap: 8px;
   }
   .gallery__cell {
@@ -296,7 +456,7 @@ const gallery = [
     transition: transform var(--t-slow) var(--ease-out);
   }
   .gallery__cell:hover img {
-    transform: scale(1.03);
+    transform: scale(1.04);
   }
   .gallery__cell--1 { grid-column: 1 / span 4; grid-row: 1 / span 2; }
   .gallery__cell--2 { grid-column: 5 / span 2; }
@@ -307,99 +467,133 @@ const gallery = [
   .gallery__cell--7 { grid-column: 7 / span 2; }
   .gallery__cell--8 { grid-column: 1 / span 8; grid-row: span 1; }
 
-  .circuits__heading,
-  .sponsors__heading,
-  .venues__heading {
-    font-size: var(--text-2xl);
-    margin-block: 16px 40px;
-    max-width: 22ch;
+  /* ===== Circuits ===== */
+  .circuits {
+    background: var(--bg-alt);
+    padding-block: clamp(80px, 12vh, 160px);
   }
-
+  .circuits__heading {
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: var(--lh-tight);
+    margin-block: 16px 56px;
+    letter-spacing: -0.02em;
+  }
   .circuits__list {
     list-style: none;
     padding: 0;
-    display: grid;
+    margin: 0;
     border-top: 1px solid var(--made-line);
   }
   .circuits__item {
     display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 24px;
-    padding: 24px 0;
+    grid-template-columns: 60px 1fr 2fr;
+    gap: 32px;
     align-items: baseline;
-    border-bottom: 1px solid color-mix(in oklab, var(--fg) 20%, transparent);
+    padding-block: 28px;
+    border-bottom: 1px solid color-mix(in oklab, var(--fg) 25%, transparent);
+    transition: background var(--t-base) var(--ease-out), padding var(--t-base) var(--ease-out);
   }
-  .circuits__name {
-    font-size: var(--text-2xl);
-    font-weight: 700;
+  .circuits__item:hover {
+    background: color-mix(in oklab, var(--made-blue) 6%, transparent);
+    padding-inline: 16px;
   }
-
-  .sponsors {
-    background: var(--bg-alt);
-  }
-  .sponsors__list,
-  .venues__list {
-    list-style: none;
-    padding: 0;
-    margin-top: 8px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .sponsors__list li {
+  .circuits__num {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     text-transform: uppercase;
     letter-spacing: var(--tr-mono-label);
-    padding: 14px 22px;
-    background: var(--bg);
-    border: 1px solid var(--made-line);
+    color: var(--fg-mute);
   }
-  .venues__list li {
+  .circuits__name {
+    font-size: clamp(28px, 3.5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .circuits__detail {
     font-size: var(--text-base);
-    padding: 10px 18px;
-    background: var(--bg-alt);
+    color: var(--fg-soft);
   }
 
+  /* ===== Sponsors block + Marquee detrás ===== */
+  .sponsors-block {
+    background: var(--bg);
+    padding-block: clamp(80px, 12vh, 120px) 32px;
+  }
+  .sponsors-block__heading {
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: var(--lh-tight);
+    margin-top: 16px;
+    letter-spacing: -0.02em;
+    max-width: 18ch;
+  }
+
+  /* ===== Venues ===== */
+  .venues-block {
+    background: var(--bg-alt);
+    padding-block: clamp(80px, 12vh, 160px);
+  }
+  .venues-block__heading {
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: var(--lh-tight);
+    margin-block: 16px 48px;
+    letter-spacing: -0.02em;
+  }
+  .venues-block__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .venues-block__list li {
+    font-size: var(--text-base);
+    padding: 12px 20px;
+    background: var(--bg);
+    border: 1px solid var(--made-line);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    font-size: var(--text-xs);
+  }
+
+  /* ===== CTA ===== */
   .cta {
     background: var(--made-ink);
     color: var(--made-bg);
+    padding-block: clamp(80px, 12vh, 160px);
   }
   .cta :global(.mono-label--ink) {
     color: var(--made-bg);
   }
+  .cta__inner {
+    max-width: 720px;
+  }
   .cta__title {
     color: var(--made-bg);
-    font-size: var(--text-3xl);
+    font-size: clamp(56px, 8vw, 144px);
+    line-height: 0.95;
     margin-block: 16px 24px;
+    letter-spacing: -0.025em;
   }
   .cta__lede {
     color: color-mix(in oklab, var(--made-bg) 80%, transparent);
     font-size: var(--text-lg);
-    max-width: 50ch;
+    max-width: 56ch;
     margin-bottom: 32px;
   }
   .cta__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-  }
-  .cta__btn {
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: var(--tr-mono-label);
-    padding: 14px 24px;
-  }
-  .cta__btn--primary {
-    background: var(--made-blue);
-    color: var(--made-bg);
-  }
-  .cta__btn--ghost {
-    border: 1px solid var(--made-bg);
+    gap: 12px;
   }
 
   @media (max-width: 900px) {
+    .hero {
+      min-height: auto;
+      padding-block: 80px;
+    }
     .stats__grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -415,7 +609,11 @@ const gallery = [
       grid-row: auto !important;
     }
     .circuits__item {
-      grid-template-columns: 60px 1fr;
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+    }
+    .circuits__detail {
+      grid-column: 2;
     }
   }
 </style>
