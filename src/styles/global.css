@@ -84,7 +84,7 @@ p {
 }
 
 ::selection {
-  background: var(--made-ink);
+  background: var(--made-blue);
   color: var(--made-bg);
 }
 
@@ -136,7 +136,7 @@ section {
   position: absolute;
   left: -9999px;
   top: 0;
-  background: var(--made-ink);
+  background: var(--made-blue);
   color: var(--made-bg);
   padding: 12px 16px;
   z-index: 999;

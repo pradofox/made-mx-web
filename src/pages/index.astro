@@ -53,7 +53,7 @@ const marqueeWords = [
         </p>
         <div class="hero__ctas">
           <a href="/made-week/2026" class="btn btn--accent">Ver MW26 →</a>
-          <a href="/empresas" class="btn btn--ghost-light">Para empresas →</a>
+          <a href="/empresas" class="btn btn--ghost">Para empresas →</a>
         </div>
       </div>
     </div>
@@ -203,10 +203,10 @@ const marqueeWords = [
 </Layout>
 
 <style>
-  /* ===== HERO — fondo negro, type masivo, alto contraste ===== */
+  /* ===== HERO — fondo claro, type masivo, accent azul ===== */
   .hero {
-    background: var(--made-ink);
-    color: var(--made-bg);
+    background: var(--made-bg);
+    color: var(--made-ink);
     padding-block: clamp(60px, 10vh, 120px) clamp(60px, 10vh, 120px);
     min-height: 92vh;
     display: flex;
@@ -224,7 +224,7 @@ const marqueeWords = [
   .hero__meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 16px;
   }
 
   .hero__stamp {
@@ -232,16 +232,16 @@ const marqueeWords = [
     font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: var(--tr-mono-label);
-    color: color-mix(in oklab, var(--made-bg) 70%, transparent);
+    color: var(--fg-soft);
     padding: 6px 12px;
-    border: 1px solid color-mix(in oklab, var(--made-bg) 30%, transparent);
+    border: 1px solid color-mix(in oklab, var(--fg) 25%, transparent);
   }
 
   .hero__title {
     font-size: clamp(64px, 13vw + 8px, 240px);
     line-height: 0.92;
     letter-spacing: -0.025em;
-    color: var(--made-bg);
+    color: var(--made-ink);
     font-weight: 700;
     margin-block: 16px 0;
   }
@@ -256,14 +256,14 @@ const marqueeWords = [
     align-items: flex-end;
     justify-content: space-between;
     gap: 32px;
-    border-top: 1px solid color-mix(in oklab, var(--made-bg) 20%, transparent);
+    border-top: 1px solid color-mix(in oklab, var(--fg) 20%, transparent);
     padding-top: 32px;
     margin-top: auto;
   }
 
   .hero__lede {
     font-size: var(--text-lg);
-    color: color-mix(in oklab, var(--made-bg) 80%, transparent);
+    color: var(--fg-soft);
     max-width: 38ch;
   }
 
@@ -302,6 +302,15 @@ const marqueeWords = [
   .btn--ghost-light:hover {
     background: color-mix(in oklab, var(--made-bg) 12%, transparent);
   }
+  .btn--ghost {
+    border: 1px solid var(--fg);
+    color: var(--fg);
+  }
+  .btn--ghost:hover {
+    background: var(--made-blue);
+    color: var(--made-bg);
+    border-color: var(--made-blue);
+  }
   .btn--inverse {
     background: var(--made-bg);
     color: var(--made-ink);
@@ -323,7 +332,7 @@ const marqueeWords = [
   .strip__cell {
     margin: 0;
     overflow: hidden;
-    background: var(--made-ink);
+    background: var(--bg-alt);
   }
   .strip__cell--1 { grid-column: 1 / span 5; grid-row: 1 / span 2; }
   .strip__cell--2 { grid-column: 6 / span 4; grid-row: 1 / span 1; }
@@ -589,31 +598,28 @@ const marqueeWords = [
 
   /* ===== Newsletter ===== */
   .newsletter {
-    background: var(--made-ink);
-    color: var(--made-bg);
+    background: var(--bg-alt);
+    color: var(--made-ink);
     padding-block: clamp(80px, 12vh, 160px);
-  }
-  .newsletter :global(.mono-label--ink) {
-    color: var(--made-bg);
   }
   .newsletter__inner {
     max-width: 720px;
   }
   .newsletter__title {
-    color: var(--made-bg);
     font-size: clamp(48px, 7vw, 112px);
     line-height: 0.95;
     margin-block: 16px 24px;
     letter-spacing: -0.025em;
+    color: var(--made-blue);
   }
   .newsletter__lede {
-    color: color-mix(in oklab, var(--made-bg) 80%, transparent);
+    color: var(--fg-soft);
     font-size: var(--text-lg);
     margin-bottom: 32px;
     max-width: 56ch;
   }
   .newsletter__lede strong {
-    color: var(--made-bg);
+    color: var(--made-ink);
   }
 
   @media (max-width: 900px) {

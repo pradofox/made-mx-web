@@ -212,8 +212,8 @@ const gallery = [
 <style>
   /* ===== HERO ===== */
   .hero {
-    background: var(--made-ink);
-    color: var(--made-bg);
+    background: var(--made-bg);
+    color: var(--made-ink);
     padding-block: clamp(60px, 10vh, 120px);
     min-height: 80vh;
     display: flex;
@@ -236,15 +236,15 @@ const gallery = [
     font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: var(--tr-mono-label);
-    color: color-mix(in oklab, var(--made-bg) 70%, transparent);
+    color: var(--fg-soft);
     padding: 6px 12px;
-    border: 1px solid color-mix(in oklab, var(--made-bg) 30%, transparent);
+    border: 1px solid color-mix(in oklab, var(--fg) 25%, transparent);
   }
   .hero__title {
     font-size: clamp(56px, 11vw + 8px, 200px);
     line-height: 0.92;
     letter-spacing: -0.025em;
-    color: var(--made-bg);
+    color: var(--made-ink);
     font-weight: 700;
     margin-block: 16px 0;
   }
@@ -257,13 +257,13 @@ const gallery = [
     align-items: flex-end;
     justify-content: space-between;
     gap: 32px;
-    border-top: 1px solid color-mix(in oklab, var(--made-bg) 20%, transparent);
+    border-top: 1px solid color-mix(in oklab, var(--fg) 20%, transparent);
     padding-top: 32px;
     margin-top: auto;
   }
   .hero__lede {
     font-size: var(--text-lg);
-    color: color-mix(in oklab, var(--made-bg) 80%, transparent);
+    color: var(--fg-soft);
     max-width: 42ch;
   }
 
@@ -544,7 +544,7 @@ const gallery = [
 
   /* ===== CTA ===== */
   .cta {
-    background: var(--made-ink);
+    background: var(--made-magenta);
     color: var(--made-bg);
     padding-block: clamp(80px, 12vh, 160px);
   }

@@ -74,15 +74,11 @@ const services = [
 
 <style>
   .hero {
-    background: var(--made-ink);
-    color: var(--made-cream);
+    background: var(--made-bg);
+    color: var(--made-ink);
     padding-block: clamp(80px, 14vh, 200px) clamp(40px, 6vh, 80px);
   }
-  .hero :global(.mono-label--ink) {
-    color: var(--made-cream);
-  }
   .hero__title {
-    color: var(--made-cream);
     font-size: var(--text-hero);
     line-height: var(--lh-tight);
     letter-spacing: var(--tr-display);
@@ -90,7 +86,7 @@ const services = [
   }
   .hero__lede {
     font-size: var(--text-lg);
-    color: color-mix(in oklab, var(--made-cream) 80%, transparent);
+    color: var(--fg-soft);
     max-width: 42ch;
   }
   .trust {
@@ -120,21 +116,21 @@ const services = [
     color: var(--fg-soft);
   }
   .cta {
-    background: var(--made-ink);
-    color: var(--made-cream);
+    background: var(--made-blue);
+    color: var(--made-bg);
   }
   .cta :global(.mono-label--ink) {
-    color: var(--made-cream);
+    color: var(--made-bg);
   }
   .cta__inner {
     max-width: 720px;
   }
   .cta__title {
-    color: var(--made-cream);
+    color: var(--made-bg);
     margin-block: 24px 16px;
   }
   .cta__lede {
-    color: color-mix(in oklab, var(--made-cream) 80%, transparent);
+    color: color-mix(in oklab, var(--made-bg) 85%, transparent);
     font-size: var(--text-lg);
     margin-bottom: 32px;
   }
@@ -143,8 +139,8 @@ const services = [
     font-size: var(--text-sm);
     text-transform: uppercase;
     letter-spacing: var(--tr-mono-label);
-    background: var(--made-blue);
-    color: var(--made-cream);
+    background: var(--made-bg);
+    color: var(--made-blue);
     padding: 16px 24px;
     display: inline-block;
     border-bottom: none;
