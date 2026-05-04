@@ -1,0 +1,58 @@
+---
+import Layout from '~/layouts/Layout.astro';
+---
+
+<Layout title="404 — Página no encontrada · MADE" noindex>
+  <section class="not-found">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Error 404 ]</span>
+      <h1 class="not-found__title">Esto no<br />está aquí.</h1>
+      <p class="not-found__lede">
+        La página que buscas no existe o cambió de lugar. Pero hay mucho más para ver.
+      </p>
+      <div class="not-found__actions">
+        <a href="/" class="btn">Ir al inicio →</a>
+        <a href="/made-week" class="btn-ghost">MADE Week →</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .not-found {
+    padding-block: clamp(80px, 14vh, 200px);
+    min-height: 60vh;
+  }
+  .not-found__title {
+    font-size: var(--text-hero);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tr-display);
+    margin-block: 24px 32px;
+  }
+  .not-found__lede {
+    font-size: var(--text-lg);
+    color: var(--fg-soft);
+    max-width: 38ch;
+    margin-bottom: 32px;
+  }
+  .not-found__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn,
+  .btn-ghost {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    padding: 14px 24px;
+  }
+  .btn {
+    background: var(--made-ink);
+    color: var(--made-paper);
+  }
+  .btn-ghost {
+    border: 1px solid var(--fg);
+  }
+</style>

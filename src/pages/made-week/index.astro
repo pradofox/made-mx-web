@@ -1,0 +1,96 @@
+---
+import Layout from '~/layouts/Layout.astro';
+---
+
+<Layout
+  title="MADE Week — Festival de arte y diseño en Monterrey"
+  description="Una semana de arte y diseño en circuitos por la ciudad. Edición 2026 ejecutada con +7,000 asistencias. La 2027 ya viene."
+>
+  <section class="hub">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ MADE Week · Festival anual ]</span>
+      <h1 class="hub__title">Vive la cultura<br />de cerca.</h1>
+      <p class="hub__lede">
+        Una semana de arte y diseño en circuitos compactos, acercándote al arte y diseño de Monterrey.
+      </p>
+
+      <div class="editions">
+        <a href="/made-week/2026" class="edition edition--current">
+          <span class="mono-label">[ MW26 · Más reciente ]</span>
+          <h2>2026</h2>
+          <p>10 días · +70 eventos · +7,000 personas · 7 circuitos</p>
+        </a>
+        <a href="/made-week/2025" class="edition">
+          <span class="mono-label">[ MW25 · Primera edición ]</span>
+          <h2>2025</h2>
+          <p>7 días · 38 eventos · 2,773 asistentes · 39 sedes</p>
+        </a>
+        <div class="edition edition--upcoming">
+          <span class="mono-label">[ MW27 · Próxima ]</span>
+          <h2>2027</h2>
+          <p>En planeación. Suscríbete al newsletter para enterarte primero.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hub {
+    padding-block: clamp(60px, 10vh, 140px);
+  }
+
+  .hub__title {
+    font-size: var(--text-hero);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tr-display);
+    margin-block: 24px 24px;
+  }
+
+  .hub__lede {
+    font-size: var(--text-lg);
+    color: var(--fg-soft);
+    max-width: 42ch;
+    margin-bottom: 64px;
+  }
+
+  .editions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .edition {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px;
+    background: var(--bg-alt);
+    border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+    transition: transform var(--t-base) var(--ease-out);
+  }
+
+  a.edition:hover {
+    transform: translateY(-2px);
+  }
+
+  .edition h2 {
+    font-size: var(--text-3xl);
+    line-height: 1;
+  }
+
+  .edition p {
+    color: var(--fg-soft);
+    font-size: var(--text-sm);
+  }
+
+  .edition--upcoming {
+    opacity: 0.65;
+  }
+
+  @media (max-width: 720px) {
+    .editions {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,90 @@
+---
+import Layout from '~/layouts/Layout.astro';
+
+const circuits = [
+  { name: 'Casco Urbano', desc: 'El núcleo histórico. Galerías, talleres y arquitectura que cuenta.' },
+  { name: 'Centrito Valle', desc: 'Diseño contemporáneo, gastronomía y la cultura del barrio que se reinventa.' },
+  { name: 'Garza Sada', desc: 'Universidades, estudios y la energía joven de la ciudad.' },
+  { name: 'Obispado', desc: 'Vista, arte público y el carácter residencial-cultural de la zona.' },
+  { name: 'MTY Centro', desc: 'Lo institucional y lo emergente conviviendo en el corazón.' },
+  { name: 'Tampiquito', desc: 'Lo íntimo, lo experimental, lo que apenas está pasando.' },
+  { name: 'Cordillera', desc: 'Paisaje urbano, talleres y espacios que abrazan la sierra.' },
+];
+---
+
+<Layout
+  title="Circuitos — MADE Week"
+  description="Los 7 circuitos de MADE Week recorren Monterrey en una lógica de Ciudad de 15 minutos: cultura caminable, accesible y compacta."
+>
+  <section class="hero">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Circuitos · 7 ]</span>
+      <h1 class="hero__title">La ciudad<br />en circuitos<br />caminables.</h1>
+      <p class="hero__lede">
+        MADE Week organiza la cultura en 7 circuitos compactos por Monterrey. Caminando, en bici, carpooling o camión. Cultura que se mueve.
+      </p>
+    </div>
+  </section>
+
+  <section class="list">
+    <div class="container">
+      <ul class="circuits">
+        {circuits.map((c, i) => (
+          <li class="circuit">
+            <span class="mono-label">[ 0{i + 1} ]</span>
+            <h2>{c.name}</h2>
+            <p>{c.desc}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding-block: clamp(80px, 14vh, 200px) clamp(40px, 6vh, 80px);
+  }
+  .hero__title {
+    font-size: var(--text-hero);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tr-display);
+    margin-block: 24px 32px;
+  }
+  .hero__lede {
+    font-size: var(--text-lg);
+    color: var(--fg-soft);
+    max-width: 42ch;
+  }
+  .list {
+    background: var(--bg-alt);
+  }
+  .circuits {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--fg);
+  }
+  .circuit {
+    display: grid;
+    grid-template-columns: 80px 1fr 2fr;
+    gap: 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid color-mix(in oklab, var(--fg) 20%, transparent);
+    align-items: baseline;
+  }
+  .circuit h2 {
+    font-size: var(--text-2xl);
+  }
+  .circuit p {
+    color: var(--fg-soft);
+    max-width: 50ch;
+  }
+  @media (max-width: 720px) {
+    .circuit {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>

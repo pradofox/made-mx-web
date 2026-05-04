@@ -1,0 +1,122 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <span class="mono-label mono-label--ink">MADE</span>
+      <ul>
+        <li><a href="/nosotros">Qué es MADE</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/prensa">Prensa</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <span class="mono-label mono-label--ink">Hacer</span>
+      <ul>
+        <li><a href="/made-week">MADE Week</a></li>
+        <li><a href="https://work.made-mx.com" rel="noopener">MADE Work ↗</a></li>
+        <li><a href="/empresas">Para empresas</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <span class="mono-label mono-label--ink">Suscríbete</span>
+      <p class="footer__newsletter-copy">
+        Una vez al mes. Cero ruido. Lo que pasa, lo que viene y a quién deberías estar siguiendo.
+      </p>
+      <a href="/newsletter" class="footer__cta">Suscribirme →</a>
+    </div>
+
+    <div class="footer__col footer__col--bottom">
+      <span class="mono-label">© {year} MADE</span>
+      <span class="mono-label">Monterrey, NL · MX</span>
+      <ul class="footer__social">
+        <li><a href="https://instagram.com/_mademx" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:contacto@made-mx.com">contacto@made-mx.com</a></li>
+      </ul>
+      <span class="mono-label">Hecho con cariño en sopadeletras®</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--made-ink);
+    color: var(--made-paper);
+    padding-block: clamp(60px, 8vh, 100px);
+  }
+
+  .footer :global(.mono-label),
+  .footer :global(.mono-label--ink) {
+    color: color-mix(in oklab, var(--made-paper) 60%, transparent);
+  }
+
+  .footer :global(.mono-label--ink) {
+    color: var(--made-paper);
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+
+  .footer__inner {
+    display: grid;
+    gap: 48px 32px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .footer__col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer__col a {
+    color: var(--made-paper);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--t-fast) var(--ease-out);
+  }
+
+  .footer__col a:hover {
+    border-bottom-color: currentColor;
+  }
+
+  .footer__newsletter-copy {
+    font-size: var(--text-sm);
+    color: color-mix(in oklab, var(--made-paper) 70%, transparent);
+    margin-bottom: 12px;
+  }
+
+  .footer__cta {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+  }
+
+  .footer__col--bottom {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid color-mix(in oklab, var(--made-paper) 15%, transparent);
+  }
+
+  .footer__social {
+    display: flex;
+    gap: 24px;
+  }
+
+  @media (max-width: 720px) {
+    .footer__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

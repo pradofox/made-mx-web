@@ -1,0 +1,76 @@
+/* MADE — Design Tokens
+ * Paraguas: neutros editoriales + acento institucional
+ * Subset MW: paleta cultural solo en módulos de festival
+ * Subset Biz: paleta sobria solo en /empresas
+ */
+
+:root {
+  /* === NEUTROS — paraguas MADE permanente === */
+  --made-paper: #f5f2ec;
+  --made-paper-soft: #ede8dd;
+  --made-ink: #0f0f0e;
+  --made-ink-soft: #2a2a28;
+  --made-mute: #6b6862;
+  --made-line: #1a1a18;
+
+  /* === ACENTO institucional — uso quirúrgico (CTAs prioritarios, errores) === */
+  --made-accent: #e63a11;
+
+  /* === MADE WEEK — solo módulos de festival activo === */
+  --mw-citrus: #f2c744;
+  --mw-clay: #d26a3f;
+  --mw-jade: #2e6b5a;
+  --mw-sky: #6b91d4;
+  --mw-rose: #e8a6a0;
+
+  /* === EMPRESAS — sobrio, alejado del festival === */
+  --biz-graphite: #1f1f1d;
+  --biz-cream: #f0ebdf;
+
+  /* === Fondos / superficies semánticos === */
+  --bg: var(--made-paper);
+  --bg-alt: var(--made-paper-soft);
+  --fg: var(--made-ink);
+  --fg-soft: var(--made-ink-soft);
+  --fg-mute: var(--made-mute);
+
+  /* === Tipografía === */
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --text-xs: clamp(11px, 0.7vw + 9px, 12px);
+  --text-sm: clamp(13px, 0.8vw + 11px, 14px);
+  --text-base: clamp(15px, 0.9vw + 13px, 17px);
+  --text-lg: clamp(18px, 1.2vw + 14px, 22px);
+  --text-xl: clamp(24px, 2vw + 18px, 32px);
+  --text-2xl: clamp(32px, 3vw + 22px, 48px);
+  --text-3xl: clamp(48px, 5vw + 28px, 88px);
+  --text-hero: clamp(72px, 10vw + 32px, 220px);
+
+  --lh-tight: 0.95;
+  --lh-snug: 1.1;
+  --lh-base: 1.5;
+  --lh-loose: 1.7;
+
+  --tr-mono-label: 0.08em;
+  --tr-display: -0.02em;
+
+  /* === Layout === */
+  --max-content: 1440px;
+  --max-wide: 1920px;
+  --pad-x: clamp(20px, 4vw, 80px);
+  --grid-gap: 24px;
+
+  /* === Radii (uso mínimo, casi cero) === */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* === Motion === */
+  --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
+  --t-fast: 150ms;
+  --t-base: 250ms;
+  --t-slow: 600ms;
+}
+
+/* Modo oscuro: opt-in solo cuando el usuario lo pide en el sistema.
+ * Por ahora dejamos solo claro como default. Toggle se agrega cuando se decida. */

@@ -1,0 +1,97 @@
+---
+import Layout from '~/layouts/Layout.astro';
+---
+
+<Layout
+  title="Contacto — MADE"
+  description="¿Quieres colaborar, patrocinar o simplemente saludar? Escríbenos. Para empresas que buscan cultura, agenda una llamada."
+>
+  <section class="hero">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Contacto ]</span>
+      <h1 class="hero__title">Hablemos.</h1>
+      <p class="hero__lede">
+        Para colaboraciones, prensa, patrocinios o cualquier conversación cultural que valga la pena.
+      </p>
+    </div>
+  </section>
+
+  <section class="channels">
+    <div class="container">
+      <div class="channels__grid">
+        <article class="channel">
+          <span class="mono-label">[ Para empresas ]</span>
+          <h2>Agenda una llamada</h2>
+          <p>30 minutos, sin compromiso. Cuéntanos qué buscan y vemos si tiene sentido trabajar juntos.</p>
+          <a href="/empresas" class="channel__link">Ver servicios →</a>
+        </article>
+
+        <article class="channel">
+          <span class="mono-label">[ Email ]</span>
+          <h2>Escríbenos directo</h2>
+          <p>Para todo lo demás: colaboraciones, prensa, propuestas creativas, ideas locas.</p>
+          <a href="mailto:contacto@made-mx.com" class="channel__link">contacto@made-mx.com →</a>
+        </article>
+
+        <article class="channel">
+          <span class="mono-label">[ Redes ]</span>
+          <h2>Síguenos</h2>
+          <p>Lo que sí pasa, lo compartimos primero por acá.</p>
+          <a href="https://instagram.com/_mademx" rel="noopener" class="channel__link">@_mademx ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding-block: clamp(80px, 14vh, 200px) clamp(40px, 6vh, 80px);
+  }
+  .hero__title {
+    font-size: var(--text-hero);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tr-display);
+    margin-block: 24px 32px;
+  }
+  .hero__lede {
+    font-size: var(--text-lg);
+    color: var(--fg-soft);
+    max-width: 38ch;
+  }
+  .channels__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .channel {
+    padding: 32px;
+    background: var(--bg-alt);
+    border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .channel h2 {
+    font-size: var(--text-xl);
+  }
+  .channel p {
+    color: var(--fg-soft);
+    flex: 1;
+  }
+  .channel__link {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+  @media (max-width: 720px) {
+    .channels__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,145 @@
+---
+import Layout from '~/layouts/Layout.astro';
+
+const stats = [
+  { num: '10', label: 'Días' },
+  { num: '+70', label: 'Eventos' },
+  { num: '+80', label: 'Espacios' },
+  { num: '+7,000', label: 'Asistencias' },
+  { num: '7', label: 'Circuitos' },
+  { num: '50+', label: 'Voluntarios' },
+];
+
+const circuits = [
+  'Casco Urbano',
+  'Centrito Valle',
+  'Garza Sada',
+  'Obispado',
+  'MTY Centro',
+  'Tampiquito',
+  'Cordillera',
+];
+
+const sponsors = [
+  'Heineken',
+  'Tec de Monterrey · EAAD',
+  'SlimPop',
+  'Los Patrones',
+  'Salón Reina',
+  'Impresos Sifer',
+  'Sound&Vision',
+  'Rumba Rebel',
+  'Laboratorio Arte AC',
+  'Lyto',
+];
+---
+
+<Layout
+  title="MADE Week 2026 — 10 días, +70 eventos, +7,000 personas"
+  description="MW26 pasó por 7 circuitos de Monterrey con +70 eventos y +7,000 asistencias. Esto fue lo que vivimos."
+>
+  <section class="hero">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ MW26 · 19 FEB - 1 MAR 2026 · Archivo ]</span>
+      <h1 class="hero__title">10 días.<br />+70 eventos.<br />+7,000 personas.</h1>
+      <p class="hero__lede">
+        Pasamos por 7 circuitos de la ciudad. Esto fue lo que vivimos.
+      </p>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <span class="mono-label">[ Resumen ]</span>
+      <div class="stats__grid">
+        {stats.map(({ num, label }) => (
+          <div class="stat">
+            <span class="stat__num">{num}</span>
+            <span class="mono-label">{label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="circuits">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ 7 Circuitos ]</span>
+      <ul class="circuits__list">
+        {circuits.map((c) => <li>{c}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="sponsors">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Patrocinadores y aliados ]</span>
+      <ul class="sponsors__list">
+        {sponsors.map((s) => <li>{s}</li>)}
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding-block: clamp(60px, 10vh, 140px) clamp(40px, 6vh, 80px);
+  }
+  .hero__title {
+    font-size: var(--text-hero);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tr-display);
+    margin-block: 24px 32px;
+  }
+  .hero__lede {
+    font-size: var(--text-lg);
+    color: var(--fg-soft);
+    max-width: 36ch;
+  }
+  .stats {
+    background: var(--bg-alt);
+  }
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 32px 24px;
+    margin-top: 32px;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat__num {
+    font-weight: 700;
+    font-size: var(--text-2xl);
+    line-height: 1;
+  }
+  .circuits__list,
+  .sponsors__list {
+    list-style: none;
+    padding: 0;
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+  .circuits__list li {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    padding: 12px 20px;
+    border: 1px solid var(--fg);
+  }
+  .sponsors__list li {
+    font-size: var(--text-base);
+    padding: 8px 16px;
+    background: var(--bg-alt);
+  }
+  @media (max-width: 720px) {
+    .stats__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

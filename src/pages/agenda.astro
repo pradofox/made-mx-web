@@ -1,0 +1,61 @@
+---
+import Layout from '~/layouts/Layout.astro';
+---
+
+<Layout
+  title="Agenda — MADE Week"
+  description="La agenda viva de MADE Week durante el festival. Fuera de festival, el archivo de la edición más reciente."
+>
+  <section class="hero">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Agenda · MADE Week ]</span>
+      <h1 class="hero__title">La próxima<br />edición ya<br />se cocina.</h1>
+      <p class="hero__lede">
+        MW27 está en planeación. Suscríbete al newsletter para enterarte de la agenda antes que nadie. Mientras tanto, revisa lo que vivimos en MW26.
+      </p>
+
+      <div class="hero__actions">
+        <a href="/newsletter" class="btn-primary">Suscribirme al newsletter →</a>
+        <a href="/made-week/2026" class="btn-ghost">Ver agenda MW26 →</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding-block: clamp(80px, 14vh, 200px) clamp(60px, 10vh, 140px);
+  }
+  .hero__title {
+    font-size: var(--text-hero);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tr-display);
+    margin-block: 24px 32px;
+  }
+  .hero__lede {
+    font-size: var(--text-lg);
+    color: var(--fg-soft);
+    max-width: 42ch;
+    margin-bottom: 40px;
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .btn-primary,
+  .btn-ghost {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    padding: 14px 24px;
+  }
+  .btn-primary {
+    background: var(--made-ink);
+    color: var(--made-paper);
+  }
+  .btn-ghost {
+    border: 1px solid var(--fg);
+  }
+</style>

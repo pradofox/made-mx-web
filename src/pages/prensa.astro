@@ -1,0 +1,111 @@
+---
+import Layout from '~/layouts/Layout.astro';
+---
+
+<Layout
+  title="Prensa — MADE"
+  description="Press kit, datasheet de MADE Week y contactos para medios."
+>
+  <section class="hero">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Prensa ]</span>
+      <h1 class="hero__title">Para medios.</h1>
+      <p class="hero__lede">
+        Datos, logos y contactos para cubrir lo que estamos construyendo en Monterrey.
+      </p>
+    </div>
+  </section>
+
+  <section class="kit">
+    <div class="container">
+      <div class="kit__grid">
+        <article class="kit__item">
+          <span class="mono-label">[ Datasheet MW26 ]</span>
+          <h2>Resultados MADE Week 2026</h2>
+          <ul>
+            <li>10 días, +70 eventos, +80 espacios</li>
+            <li>+7,000 asistencias, 7 circuitos</li>
+            <li>9,428 seguidores Instagram, 21.8% engagement</li>
+            <li>+1.3M vistas, 160.5k cuentas alcanzadas</li>
+            <li>62% mujeres · 82.8% entre 18-35 años</li>
+          </ul>
+        </article>
+
+        <article class="kit__item">
+          <span class="mono-label">[ Crecimiento ]</span>
+          <h2>De MW25 a MW26</h2>
+          <ul>
+            <li>Asistentes: 2.5x</li>
+            <li>Seguidores Instagram: 4.3x</li>
+            <li>Engagement: subió mientras la cuenta crecía</li>
+          </ul>
+        </article>
+
+        <article class="kit__item">
+          <span class="mono-label">[ Contacto medios ]</span>
+          <h2>¿Cubres MADE?</h2>
+          <p>Para entrevistas, fotos en alta resolución y solicitudes editoriales.</p>
+          <a href="mailto:contacto@made-mx.com" class="kit__link">contacto@made-mx.com →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding-block: clamp(80px, 14vh, 200px) clamp(40px, 6vh, 80px);
+  }
+  .hero__title {
+    font-size: var(--text-hero);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tr-display);
+    margin-block: 24px 32px;
+  }
+  .hero__lede {
+    font-size: var(--text-lg);
+    color: var(--fg-soft);
+    max-width: 38ch;
+  }
+  .kit__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .kit__item {
+    padding: 32px;
+    background: var(--bg-alt);
+    border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .kit__item h2 {
+    font-size: var(--text-xl);
+  }
+  .kit__item ul {
+    padding-left: 20px;
+    color: var(--fg-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .kit__item p {
+    color: var(--fg-soft);
+  }
+  .kit__link {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    align-self: flex-start;
+    margin-top: auto;
+  }
+  @media (max-width: 720px) {
+    .kit__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

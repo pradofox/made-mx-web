@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Bloquear indexación de subdominio dev
+# Esta entrada se sobrescribe en el deploy de producción.
+
+Sitemap: https://made-mx.com/sitemap-index.xml

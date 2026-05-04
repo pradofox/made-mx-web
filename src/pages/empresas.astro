@@ -1,0 +1,157 @@
+---
+import Layout from '~/layouts/Layout.astro';
+
+const services = [
+  {
+    title: 'Eventos culturales corporativos',
+    body: 'Diseñamos y producimos eventos culturales de marca, desde activaciones íntimas hasta experiencias para 500+ personas. Curaduría, producción, comunicación, todo bajo el mismo techo.',
+  },
+  {
+    title: 'Obras de arte conmemorativas',
+    body: 'Curaduría y producción de obras de arte para aniversarios, sedes corporativas y momentos significativos. Trabajamos con la comunidad de artistas que MADE ha construido.',
+  },
+  {
+    title: 'Retainers de estrategia cultural',
+    body: 'Acompañamiento mensual para empresas que quieren construir programa cultural propio. Estrategia anual, calendario de actividades, coordinación de eventos, reporte de impacto.',
+  },
+  {
+    title: 'Patrocinios MADE Week',
+    body: 'Visibilidad ante una comunidad real (+9,000 seguidores, 21.8% engagement) durante 10 días de festival. Esquemas a la medida según objetivos de marca.',
+  },
+];
+---
+
+<Layout
+  title="MADE para empresas — Cultura como activo de marca"
+  description="Eventos culturales corporativos, obras conmemorativas, retainers de estrategia cultural y patrocinios de festival. Construimos programas culturales para empresas que quieren dejar algo, no solo aparecer."
+>
+  <section class="hero">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Para empresas · MADE ]</span>
+      <h1 class="hero__title">Cultura como<br />activo de marca.</h1>
+      <p class="hero__lede">
+        Diseñamos eventos, obras y programas culturales para marcas que quieren dejar algo, no solo aparecer.
+      </p>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="container">
+      <span class="mono-label">[ Marcas con las que ya trabajamos o conversamos ]</span>
+      <p class="trust__list">
+        Heineken · Tecnológico de Monterrey · SlimPop · Salón Reina · Los Patrones · Sound&Vision · y más.
+      </p>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Qué hacemos ]</span>
+      <div class="services__grid">
+        {services.map((s) => (
+          <article class="service">
+            <h2>{s.title}</h2>
+            <p>{s.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="cta__inner">
+        <span class="mono-label mono-label--ink">[ Siguiente paso ]</span>
+        <h2 class="cta__title">No vendemos paquetes. Construimos juntos.</h2>
+        <p class="cta__lede">
+          Cuéntanos qué quieren lograr. La primera llamada es siempre gratis.
+        </p>
+        <a href="/contacto" class="cta__btn">Agenda 30 minutos →</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: var(--biz-graphite);
+    color: var(--biz-cream);
+    padding-block: clamp(80px, 14vh, 200px) clamp(40px, 6vh, 80px);
+  }
+  .hero :global(.mono-label--ink) {
+    color: var(--biz-cream);
+  }
+  .hero__title {
+    color: var(--biz-cream);
+    font-size: var(--text-hero);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tr-display);
+    margin-block: 24px 32px;
+  }
+  .hero__lede {
+    font-size: var(--text-lg);
+    color: color-mix(in oklab, var(--biz-cream) 80%, transparent);
+    max-width: 42ch;
+  }
+  .trust {
+    background: var(--biz-cream);
+  }
+  .trust__list {
+    margin-top: 24px;
+    font-size: var(--text-lg);
+    color: var(--biz-graphite);
+  }
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .service {
+    padding: 32px;
+    background: var(--bg-alt);
+    border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+  }
+  .service h2 {
+    font-size: var(--text-xl);
+    margin-bottom: 12px;
+  }
+  .service p {
+    color: var(--fg-soft);
+  }
+  .cta {
+    background: var(--biz-graphite);
+    color: var(--biz-cream);
+  }
+  .cta :global(.mono-label--ink) {
+    color: var(--biz-cream);
+  }
+  .cta__inner {
+    max-width: 720px;
+  }
+  .cta__title {
+    color: var(--biz-cream);
+    margin-block: 24px 16px;
+  }
+  .cta__lede {
+    color: color-mix(in oklab, var(--biz-cream) 80%, transparent);
+    font-size: var(--text-lg);
+    margin-bottom: 32px;
+  }
+  .cta__btn {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    background: var(--made-accent);
+    color: var(--biz-cream);
+    padding: 16px 24px;
+    display: inline-block;
+    border-bottom: none;
+  }
+  @media (max-width: 720px) {
+    .services__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

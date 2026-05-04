@@ -1,0 +1,97 @@
+---
+import MadeLogo from '~/components/MadeLogo.astro';
+
+const items = [
+  { label: 'MADE Week', href: '/made-week' },
+  { label: 'Empresas', href: '/empresas' },
+  { label: 'Nosotros', href: '/nosotros' },
+  { label: 'Newsletter', href: '/newsletter' },
+  { label: 'Contacto', href: '/contacto' },
+];
+
+const current = Astro.url.pathname;
+---
+
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="/" class="nav__brand" aria-label="MADE — Inicio">
+      <MadeLogo width={92} height={20} />
+    </a>
+
+    <nav aria-label="Navegación principal" class="nav__menu">
+      <ul class="nav__list">
+        {items.map((item) => {
+          const active = current === item.href || (item.href !== '/' && current.startsWith(item.href));
+          return (
+            <li>
+              <a href={item.href} class={active ? 'nav__link nav__link--active' : 'nav__link'} aria-current={active ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in oklab, var(--bg) 92%, transparent);
+    backdrop-filter: saturate(140%) blur(8px);
+    border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-block: 16px;
+  }
+
+  .nav__brand {
+    display: inline-flex;
+    color: var(--fg);
+  }
+  .nav__brand:hover {
+    color: var(--made-accent);
+  }
+
+  .nav__list {
+    display: flex;
+    gap: clamp(16px, 2.5vw, 32px);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav__link {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    color: var(--fg-soft);
+    padding-block: 4px;
+    border-bottom: 1px solid transparent;
+    transition: color var(--t-fast) var(--ease-out), border-color var(--t-fast) var(--ease-out);
+  }
+
+  .nav__link:hover {
+    color: var(--fg);
+  }
+
+  .nav__link--active {
+    color: var(--fg);
+    border-bottom-color: var(--fg);
+  }
+
+  @media (max-width: 720px) {
+    .nav__menu {
+      display: none;
+    }
+  }
+</style>

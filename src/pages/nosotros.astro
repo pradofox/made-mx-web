@@ -1,0 +1,117 @@
+---
+import Layout from '~/layouts/Layout.astro';
+
+const team = [
+  { name: 'Lilian Balderas', role: 'Dir. Marketing' },
+  { name: 'Roberto Prado', role: 'Dir. Diseño' },
+  { name: 'Daniela de la Peña', role: 'Dir. Experiencias' },
+  { name: 'Marcelo Vallecillo', role: 'Dir. Legal' },
+  { name: 'Mariana Quiriz', role: 'Coord. Logística' },
+  { name: 'Lorena Lavin', role: 'Sub-coord. Logística' },
+  { name: 'David de la Peña', role: 'Asist. Producción' },
+  { name: 'Gary Ezay Morales', role: 'Asist. Experiencias' },
+  { name: 'Guti Cámara', role: 'Coord. Media' },
+];
+---
+
+<Layout
+  title="Nosotros — MADE"
+  description="MADE es una plataforma cultural nacida en Monterrey. Conectamos arte, diseño, espacios y comunidad para que la ciudad se viva más cerca."
+>
+  <section class="hero">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Quiénes somos ]</span>
+      <h1 class="hero__title">
+        Una plataforma<br />cultural nacida<br />en Monterrey.
+      </h1>
+      <p class="hero__lede">
+        Conectamos arte, diseño, espacios y comunidad para que la ciudad se viva de una manera más cercana, creativa y accesible.
+      </p>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ De dónde venimos ]</span>
+      <div class="story__body">
+        <p>
+          MADE empezó como un experimento entre amigos: ¿se puede acercar el arte y el diseño de Monterrey a más gente sin volverlo institucional? La primera edición de MADE Week en 2025 movió a 2,773 personas en 7 días. La segunda, en 2026, llegó a más de 7,000 en 10 días.
+        </p>
+        <p>
+          No somos una productora ni una agencia. Somos una plataforma cultural. MADE Week es nuestra cara más visible, pero también construimos MADE Work (el job board creativo de México), trabajamos con marcas en programas culturales, y articulamos comunidad todo el año.
+        </p>
+        <p>
+          Detrás de MADE está sopadeletras®, estudio creativo boutique en Monterrey.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Equipo ]</span>
+      <ul class="team__grid">
+        {team.map((p) => (
+          <li class="member">
+            <span class="member__name">{p.name}</span>
+            <span class="mono-label">{p.role}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding-block: clamp(80px, 14vh, 200px) clamp(40px, 6vh, 80px);
+  }
+  .hero__title {
+    font-size: var(--text-hero);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tr-display);
+    margin-block: 24px 32px;
+  }
+  .hero__lede {
+    font-size: var(--text-lg);
+    color: var(--fg-soft);
+    max-width: 38ch;
+  }
+  .story {
+    background: var(--bg-alt);
+  }
+  .story__body {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 65ch;
+    font-size: var(--text-lg);
+    color: var(--fg-soft);
+  }
+  .team__grid {
+    list-style: none;
+    padding: 0;
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .member {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 24px;
+    background: var(--bg-alt);
+    border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+  }
+  .member__name {
+    font-weight: 700;
+    font-size: var(--text-lg);
+  }
+  @media (max-width: 720px) {
+    .team__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

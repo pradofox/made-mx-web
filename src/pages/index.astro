@@ -1,0 +1,226 @@
+---
+import Layout from '~/layouts/Layout.astro';
+---
+
+<Layout
+  title="MADE — Arte y diseño que sí pasa en Monterrey"
+  description="MADE es la plataforma cultural que conecta arte, diseño y ciudad en Monterrey. MADE Week en febrero. Conversaciones todo el año."
+>
+  <section class="hero">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ MADE · Plataforma Cultural · Monterrey, MX ]</span>
+      <h1 class="hero__title">
+        Arte y diseño<br />que sí pasa en<br />Monterrey.
+      </h1>
+      <p class="hero__lede">
+        Somos la plataforma cultural que conecta a quien hace con quien quiere ver. MADE Week en febrero. Conversaciones todo el año.
+      </p>
+    </div>
+  </section>
+
+  <section class="proof">
+    <div class="container">
+      <span class="mono-label">[ MW26 · 19 FEB - 1 MAR 2026 ]</span>
+      <div class="proof__grid">
+        <div class="proof__item">
+          <span class="proof__num">+7,000</span>
+          <span class="mono-label">Personas</span>
+        </div>
+        <div class="proof__item">
+          <span class="proof__num">+70</span>
+          <span class="mono-label">Eventos</span>
+        </div>
+        <div class="proof__item">
+          <span class="proof__num">+80</span>
+          <span class="mono-label">Espacios</span>
+        </div>
+        <div class="proof__item">
+          <span class="proof__num">7</span>
+          <span class="mono-label">Circuitos</span>
+        </div>
+        <div class="proof__item">
+          <span class="proof__num">10</span>
+          <span class="mono-label">Días</span>
+        </div>
+      </div>
+      <a href="/made-week/2026" class="proof__link">Cómo se vivió MW26 →</a>
+    </div>
+  </section>
+
+  <section class="verticals">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Qué hacemos ]</span>
+      <div class="verticals__grid">
+        <article class="vertical">
+          <span class="mono-label">[ Festival ]</span>
+          <h2>MADE Week</h2>
+          <p>Una semana de arte y diseño en circuitos por la ciudad. La edición 2027 ya se está cocinando.</p>
+          <a href="/made-week" class="vertical__link">Ver MADE Week →</a>
+        </article>
+
+        <article class="vertical">
+          <span class="mono-label">[ Job Board ]</span>
+          <h2>MADE Work</h2>
+          <p>El epicentro del talento creativo en México. Empleos, perfiles y oportunidades para la comunidad.</p>
+          <a href="https://work.made-mx.com" class="vertical__link" rel="noopener">Ver MADE Work ↗</a>
+        </article>
+
+        <article class="vertical vertical--soon">
+          <span class="mono-label">[ Próximamente ]</span>
+          <h2>AleaModa</h2>
+          <p>Iniciativa de moda co-creada con FC Agency y sopadeletras®. Pasarela en octubre.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="biz">
+    <div class="container">
+      <div class="biz__inner">
+        <span class="mono-label mono-label--ink">[ Para empresas ]</span>
+        <h2 class="biz__title">¿Eres una empresa que quiere ser parte de la cultura?</h2>
+        <p class="biz__lede">
+          Diseñamos eventos, obras y programas culturales para marcas que quieren dejar algo, no solo aparecer.
+        </p>
+        <a href="/empresas" class="biz__link">Conoce qué hacemos para empresas →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container">
+      <span class="mono-label mono-label--ink">[ Newsletter ]</span>
+      <h2 class="newsletter__title">Una vez al mes. Cero ruido.</h2>
+      <p class="newsletter__lede">
+        Lo que pasa, lo que viene y a quién deberías estar siguiendo en la escena cultural de Monterrey. +1,000 personas ya están adentro.
+      </p>
+      <a href="/newsletter" class="newsletter__cta">Suscribirme →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: var(--bg);
+    padding-block: clamp(80px, 14vh, 200px) clamp(40px, 6vh, 80px);
+  }
+
+  .hero__title {
+    font-size: var(--text-hero);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tr-display);
+    margin-block: 24px 32px;
+  }
+
+  .hero__lede {
+    font-size: var(--text-lg);
+    max-width: 38ch;
+    color: var(--fg-soft);
+  }
+
+  .proof {
+    background: var(--bg-alt);
+  }
+
+  .proof__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px 24px;
+    margin-block: 32px 40px;
+  }
+
+  .proof__item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .proof__num {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: var(--text-2xl);
+    line-height: 1;
+  }
+
+  .proof__link,
+  .vertical__link,
+  .biz__link,
+  .newsletter__cta {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+  }
+
+  .verticals__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  .vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+    background: var(--bg-alt);
+    border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+  }
+
+  .vertical h2 {
+    font-size: var(--text-xl);
+  }
+
+  .vertical p {
+    color: var(--fg-soft);
+  }
+
+  .vertical--soon {
+    opacity: 0.7;
+  }
+
+  .biz {
+    background: var(--biz-graphite);
+    color: var(--biz-cream);
+  }
+
+  .biz :global(.mono-label--ink) {
+    color: var(--biz-cream);
+  }
+
+  .biz__inner {
+    max-width: 720px;
+  }
+
+  .biz__title {
+    color: var(--biz-cream);
+    margin-block: 24px 16px;
+  }
+
+  .biz__lede {
+    color: color-mix(in oklab, var(--biz-cream) 80%, transparent);
+    font-size: var(--text-lg);
+    margin-bottom: 24px;
+  }
+
+  .newsletter__title {
+    margin-block: 24px 16px;
+  }
+
+  .newsletter__lede {
+    margin-bottom: 24px;
+    color: var(--fg-soft);
+  }
+
+  @media (max-width: 720px) {
+    .proof__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .verticals__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
