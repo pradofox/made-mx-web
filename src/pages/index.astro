@@ -1,5 +1,19 @@
 ---
 import Layout from '~/layouts/Layout.astro';
+
+const heroStrip = [
+  { src: '/img/mw26/hero-01.jpg', alt: 'Asistente de MADE Week en bar Adoro durante MW26', caption: 'MW26 · Adoro' },
+  { src: '/img/mw26/hero-02.jpg', alt: 'Concierto en MADE Week 2026', caption: 'MW26 · Concierto' },
+  { src: '/img/mw26/hero-03.jpg', alt: 'Artista en escenario MW26', caption: 'MW26 · Escenario' },
+  { src: '/img/mw26/hero-04.jpg', alt: 'Comunidad MADE en evento', caption: 'MW26 · Comunidad' },
+];
+
+const recap = [
+  { src: '/img/mw26/hero-05.jpg', alt: 'MADE Week 2026 momento' },
+  { src: '/img/mw26/hero-06.jpg', alt: 'MADE Week 2026 evento' },
+  { src: '/img/mw26/hero-07.jpg', alt: 'MADE Week 2026 noche' },
+  { src: '/img/mw26/hero-08.jpg', alt: 'MADE Week 2026 cierre' },
+];
 ---
 
 <Layout
@@ -8,7 +22,7 @@ import Layout from '~/layouts/Layout.astro';
 >
   <section class="hero">
     <div class="container">
-      <span class="mono-label mono-label--ink">[ MADE · Plataforma Cultural · Monterrey, MX ]</span>
+      <span class="mono-label mono-label--ink">MADE · Plataforma Cultural · Monterrey, MX</span>
       <h1 class="hero__title">
         Arte y diseño<br />que sí pasa en<br />Monterrey.
       </h1>
@@ -18,9 +32,23 @@ import Layout from '~/layouts/Layout.astro';
     </div>
   </section>
 
+  <section class="strip" aria-label="Galería MADE Week 2026">
+    <div class="container container--wide">
+      <div class="strip__grid">
+        {heroStrip.map((p, i) => (
+          <figure class={`strip__cell strip__cell--${i + 1}`}>
+            <img src={p.src} alt={p.alt} loading="lazy" decoding="async" />
+            <figcaption class="mono-label">{p.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="proof">
     <div class="container">
-      <span class="mono-label">[ MW26 · 19 FEB - 1 MAR 2026 ]</span>
+      <span class="mono-label mono-label--ink">MW26 · 19 FEB - 1 MAR 2026</span>
+      <h2 class="proof__heading">La segunda edición<br />nos quedó así.</h2>
       <div class="proof__grid">
         <div class="proof__item">
           <span class="proof__num">+7,000</span>
@@ -47,27 +75,38 @@ import Layout from '~/layouts/Layout.astro';
     </div>
   </section>
 
+  <section class="recap">
+    <div class="container container--wide">
+      <div class="recap__grid">
+        {recap.map((p) => (
+          <img src={p.src} alt={p.alt} loading="lazy" decoding="async" class="recap__img" />
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="verticals">
     <div class="container">
-      <span class="mono-label mono-label--ink">[ Qué hacemos ]</span>
+      <span class="mono-label mono-label--ink">Qué hacemos</span>
+      <h2 class="verticals__heading">Tres frentes,<br />una misma idea.</h2>
       <div class="verticals__grid">
-        <article class="vertical">
-          <span class="mono-label">[ Festival ]</span>
-          <h2>MADE Week</h2>
+        <article class="vertical vertical--festival">
+          <span class="mono-label">Festival</span>
+          <h3>MADE Week</h3>
           <p>Una semana de arte y diseño en circuitos por la ciudad. La edición 2027 ya se está cocinando.</p>
           <a href="/made-week" class="vertical__link">Ver MADE Week →</a>
         </article>
 
-        <article class="vertical">
-          <span class="mono-label">[ Job Board ]</span>
-          <h2>MADE Work</h2>
+        <article class="vertical vertical--work">
+          <span class="mono-label">Job Board</span>
+          <h3>MADE Work</h3>
           <p>El epicentro del talento creativo en México. Empleos, perfiles y oportunidades para la comunidad.</p>
           <a href="https://work.made-mx.com" class="vertical__link" rel="noopener">Ver MADE Work ↗</a>
         </article>
 
         <article class="vertical vertical--soon">
-          <span class="mono-label">[ Próximamente ]</span>
-          <h2>AleaModa</h2>
+          <span class="mono-label">Próximamente</span>
+          <h3>AleaModa</h3>
           <p>Iniciativa de moda co-creada con FC Agency y sopadeletras®. Pasarela en octubre.</p>
         </article>
       </div>
@@ -77,8 +116,8 @@ import Layout from '~/layouts/Layout.astro';
   <section class="biz">
     <div class="container">
       <div class="biz__inner">
-        <span class="mono-label mono-label--ink">[ Para empresas ]</span>
-        <h2 class="biz__title">¿Eres una empresa que quiere ser parte de la cultura?</h2>
+        <span class="mono-label mono-label--ink">Para empresas</span>
+        <h2 class="biz__title">¿Eres una empresa<br />que quiere ser parte<br />de la cultura?</h2>
         <p class="biz__lede">
           Diseñamos eventos, obras y programas culturales para marcas que quieren dejar algo, no solo aparecer.
         </p>
@@ -89,10 +128,10 @@ import Layout from '~/layouts/Layout.astro';
 
   <section class="newsletter">
     <div class="container">
-      <span class="mono-label mono-label--ink">[ Newsletter ]</span>
-      <h2 class="newsletter__title">Una vez al mes. Cero ruido.</h2>
+      <span class="mono-label mono-label--ink">Newsletter</span>
+      <h2 class="newsletter__title">Una vez al mes.<br />Cero ruido.</h2>
       <p class="newsletter__lede">
-        Lo que pasa, lo que viene y a quién deberías estar siguiendo en la escena cultural de Monterrey. +1,000 personas ya están adentro.
+        Lo que pasa, lo que viene y a quién deberías estar siguiendo en la escena cultural de Monterrey. <strong>+1,000 personas</strong> ya están adentro.
       </p>
       <a href="/newsletter" class="newsletter__cta">Suscribirme →</a>
     </div>
@@ -118,21 +157,74 @@ import Layout from '~/layouts/Layout.astro';
     color: var(--fg-soft);
   }
 
+  .strip {
+    padding-block: 0 clamp(60px, 8vh, 100px);
+  }
+
+  .strip__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(260px, 36vh);
+    gap: 16px;
+  }
+
+  .strip__cell {
+    margin: 0;
+    overflow: hidden;
+    background: var(--made-ink);
+    position: relative;
+  }
+
+  .strip__cell--1 { grid-column: 1 / span 5; grid-row: 1 / span 2; }
+  .strip__cell--2 { grid-column: 6 / span 4; grid-row: 1 / span 1; }
+  .strip__cell--3 { grid-column: 6 / span 4; grid-row: 2 / span 1; }
+  .strip__cell--4 { grid-column: 10 / span 3; grid-row: 1 / span 2; }
+
+  .strip__cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--t-slow) var(--ease-out);
+  }
+
+  .strip__cell:hover img {
+    transform: scale(1.03);
+  }
+
+  .strip__cell figcaption {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    color: var(--made-bg);
+    background: color-mix(in oklab, var(--made-ink) 60%, transparent);
+    padding: 6px 10px;
+    backdrop-filter: blur(4px);
+  }
+
   .proof {
     background: var(--bg-alt);
+  }
+
+  .proof__heading {
+    font-size: var(--text-2xl);
+    margin-block: 16px 40px;
+    max-width: 18ch;
   }
 
   .proof__grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 32px 24px;
-    margin-block: 32px 40px;
+    margin-block: 24px 40px;
+    border-top: 1px solid var(--made-line);
+    padding-top: 32px;
   }
 
   .proof__item {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
   }
 
   .proof__num {
@@ -140,25 +232,37 @@ import Layout from '~/layouts/Layout.astro';
     font-weight: 700;
     font-size: var(--text-2xl);
     line-height: 1;
+    color: var(--made-blue);
   }
 
-  .proof__link,
-  .vertical__link,
-  .biz__link,
-  .newsletter__cta {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: var(--tr-mono-label);
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 2px;
+  .recap {
+    padding-block: 0;
+  }
+
+  .recap__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    aspect-ratio: 16 / 6;
+  }
+
+  .recap__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .verticals__heading {
+    font-size: var(--text-2xl);
+    margin-block: 16px 40px;
+    max-width: 22ch;
   }
 
   .verticals__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 32px;
+    gap: 24px;
   }
 
   .vertical {
@@ -167,28 +271,54 @@ import Layout from '~/layouts/Layout.astro';
     gap: 16px;
     padding: 32px;
     background: var(--bg-alt);
-    border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+    border-top: 4px solid var(--made-line);
+    transition: transform var(--t-base) var(--ease-out);
   }
 
-  .vertical h2 {
+  .vertical--festival {
+    border-top-color: var(--made-magenta);
+  }
+
+  .vertical--work {
+    border-top-color: var(--made-blue);
+  }
+
+  .vertical--soon {
+    border-top-color: var(--made-mute);
+    opacity: 0.7;
+  }
+
+  .vertical:hover {
+    transform: translateY(-2px);
+  }
+
+  .vertical h3 {
     font-size: var(--text-xl);
   }
 
   .vertical p {
     color: var(--fg-soft);
+    flex: 1;
   }
 
-  .vertical--soon {
-    opacity: 0.7;
+  .vertical__link {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    align-self: flex-start;
+    color: var(--made-blue);
   }
 
   .biz {
-    background: var(--biz-graphite);
-    color: var(--biz-cream);
+    background: var(--made-blue);
+    color: var(--made-bg);
   }
 
   .biz :global(.mono-label--ink) {
-    color: var(--biz-cream);
+    color: var(--made-bg);
   }
 
   .biz__inner {
@@ -196,14 +326,24 @@ import Layout from '~/layouts/Layout.astro';
   }
 
   .biz__title {
-    color: var(--biz-cream);
-    margin-block: 24px 16px;
+    color: var(--made-bg);
+    margin-block: 24px 24px;
+    font-size: var(--text-3xl);
   }
 
   .biz__lede {
-    color: color-mix(in oklab, var(--biz-cream) 80%, transparent);
+    color: color-mix(in oklab, var(--made-bg) 88%, transparent);
     font-size: var(--text-lg);
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  .biz__link {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
   }
 
   .newsletter__title {
@@ -213,9 +353,47 @@ import Layout from '~/layouts/Layout.astro';
   .newsletter__lede {
     margin-bottom: 24px;
     color: var(--fg-soft);
+    font-size: var(--text-lg);
   }
 
-  @media (max-width: 720px) {
+  .newsletter__cta {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    background: var(--made-ink);
+    color: var(--made-bg);
+    padding: 14px 24px;
+    display: inline-block;
+    transition: background var(--t-fast) var(--ease-out);
+  }
+
+  .newsletter__cta:hover {
+    background: var(--made-blue);
+  }
+
+  .proof__link {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-mono-label);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .strip__grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: minmax(220px, 30vh);
+    }
+    .strip__cell--1, .strip__cell--2, .strip__cell--3, .strip__cell--4 {
+      grid-column: auto;
+      grid-row: auto;
+    }
+    .recap__grid {
+      grid-template-columns: repeat(2, 1fr);
+      aspect-ratio: 4 / 3;
+    }
     .proof__grid {
       grid-template-columns: repeat(2, 1fr);
     }

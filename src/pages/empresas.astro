@@ -27,7 +27,7 @@ const services = [
 >
   <section class="hero">
     <div class="container">
-      <span class="mono-label mono-label--ink">[ Para empresas · MADE ]</span>
+      <span class="mono-label mono-label--ink">Para empresas · MADE</span>
       <h1 class="hero__title">Cultura como<br />activo de marca.</h1>
       <p class="hero__lede">
         Diseñamos eventos, obras y programas culturales para marcas que quieren dejar algo, no solo aparecer.
@@ -37,7 +37,7 @@ const services = [
 
   <section class="trust">
     <div class="container">
-      <span class="mono-label">[ Marcas con las que ya trabajamos o conversamos ]</span>
+      <span class="mono-label">Marcas con las que ya trabajamos o conversamos</span>
       <p class="trust__list">
         Heineken · Tecnológico de Monterrey · SlimPop · Salón Reina · Los Patrones · Sound&Vision · y más.
       </p>
@@ -46,7 +46,7 @@ const services = [
 
   <section class="services">
     <div class="container">
-      <span class="mono-label mono-label--ink">[ Qué hacemos ]</span>
+      <span class="mono-label mono-label--ink">Qué hacemos</span>
       <div class="services__grid">
         {services.map((s) => (
           <article class="service">
@@ -61,7 +61,7 @@ const services = [
   <section class="cta">
     <div class="container">
       <div class="cta__inner">
-        <span class="mono-label mono-label--ink">[ Siguiente paso ]</span>
+        <span class="mono-label mono-label--ink">Siguiente paso</span>
         <h2 class="cta__title">No vendemos paquetes. Construimos juntos.</h2>
         <p class="cta__lede">
           Cuéntanos qué quieren lograr. La primera llamada es siempre gratis.
@@ -74,15 +74,15 @@ const services = [
 
 <style>
   .hero {
-    background: var(--biz-graphite);
-    color: var(--biz-cream);
+    background: var(--made-ink);
+    color: var(--made-cream);
     padding-block: clamp(80px, 14vh, 200px) clamp(40px, 6vh, 80px);
   }
   .hero :global(.mono-label--ink) {
-    color: var(--biz-cream);
+    color: var(--made-cream);
   }
   .hero__title {
-    color: var(--biz-cream);
+    color: var(--made-cream);
     font-size: var(--text-hero);
     line-height: var(--lh-tight);
     letter-spacing: var(--tr-display);
@@ -90,16 +90,16 @@ const services = [
   }
   .hero__lede {
     font-size: var(--text-lg);
-    color: color-mix(in oklab, var(--biz-cream) 80%, transparent);
+    color: color-mix(in oklab, var(--made-cream) 80%, transparent);
     max-width: 42ch;
   }
   .trust {
-    background: var(--biz-cream);
+    background: var(--made-cream);
   }
   .trust__list {
     margin-top: 24px;
     font-size: var(--text-lg);
-    color: var(--biz-graphite);
+    color: var(--made-ink);
   }
   .services__grid {
     display: grid;
@@ -120,21 +120,21 @@ const services = [
     color: var(--fg-soft);
   }
   .cta {
-    background: var(--biz-graphite);
-    color: var(--biz-cream);
+    background: var(--made-ink);
+    color: var(--made-cream);
   }
   .cta :global(.mono-label--ink) {
-    color: var(--biz-cream);
+    color: var(--made-cream);
   }
   .cta__inner {
     max-width: 720px;
   }
   .cta__title {
-    color: var(--biz-cream);
+    color: var(--made-cream);
     margin-block: 24px 16px;
   }
   .cta__lede {
-    color: color-mix(in oklab, var(--biz-cream) 80%, transparent);
+    color: color-mix(in oklab, var(--made-cream) 80%, transparent);
     font-size: var(--text-lg);
     margin-bottom: 32px;
   }
@@ -143,8 +143,8 @@ const services = [
     font-size: var(--text-sm);
     text-transform: uppercase;
     letter-spacing: var(--tr-mono-label);
-    background: var(--made-accent);
-    color: var(--biz-cream);
+    background: var(--made-blue);
+    color: var(--made-cream);
     padding: 16px 24px;
     display: inline-block;
     border-bottom: none;

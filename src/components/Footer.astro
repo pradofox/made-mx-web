@@ -46,17 +46,17 @@ const year = new Date().getFullYear();
 <style>
   .footer {
     background: var(--made-ink);
-    color: var(--made-paper);
+    color: var(--made-bg);
     padding-block: clamp(60px, 8vh, 100px);
   }
 
   .footer :global(.mono-label),
   .footer :global(.mono-label--ink) {
-    color: color-mix(in oklab, var(--made-paper) 60%, transparent);
+    color: color-mix(in oklab, var(--made-bg) 60%, transparent);
   }
 
   .footer :global(.mono-label--ink) {
-    color: var(--made-paper);
+    color: var(--made-bg);
     margin-bottom: 16px;
     display: inline-block;
   }
@@ -77,7 +77,7 @@ const year = new Date().getFullYear();
   }
 
   .footer__col a {
-    color: var(--made-paper);
+    color: var(--made-bg);
     border-bottom: 1px solid transparent;
     transition: border-color var(--t-fast) var(--ease-out);
   }
@@ -88,7 +88,7 @@ const year = new Date().getFullYear();
 
   .footer__newsletter-copy {
     font-size: var(--text-sm);
-    color: color-mix(in oklab, var(--made-paper) 70%, transparent);
+    color: color-mix(in oklab, var(--made-bg) 70%, transparent);
     margin-bottom: 12px;
   }
 
@@ -106,7 +106,7 @@ const year = new Date().getFullYear();
     gap: 16px 32px;
     align-items: center;
     padding-top: 32px;
-    border-top: 1px solid color-mix(in oklab, var(--made-paper) 15%, transparent);
+    border-top: 1px solid color-mix(in oklab, var(--made-bg) 15%, transparent);
   }
 
   .footer__social {

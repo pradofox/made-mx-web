@@ -83,7 +83,7 @@ p {
 
 ::selection {
   background: var(--made-ink);
-  color: var(--made-paper);
+  color: var(--made-bg);
 }
 
 /* Utilidad: etiqueta mono en mayúsculas con tracking (fechas, categorías, créditos) */
@@ -135,7 +135,7 @@ section {
   left: -9999px;
   top: 0;
   background: var(--made-ink);
-  color: var(--made-paper);
+  color: var(--made-bg);
   padding: 12px 16px;
   z-index: 999;
 }

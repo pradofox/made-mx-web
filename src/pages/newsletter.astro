@@ -8,7 +8,7 @@ import Layout from '~/layouts/Layout.astro';
 >
   <section class="hero">
     <div class="container">
-      <span class="mono-label mono-label--ink">[ Newsletter MADE ]</span>
+      <span class="mono-label mono-label--ink">Newsletter MADE</span>
       <h1 class="hero__title">Una vez al mes.<br />Cero ruido.</h1>
       <p class="hero__lede">
         Lo que pasa, lo que viene y a quién deberías estar siguiendo en la escena cultural de Monterrey. <strong>+1,000 personas</strong> ya están adentro.
@@ -16,11 +16,11 @@ import Layout from '~/layouts/Layout.astro';
 
       <form class="form" action="#" method="post" data-form="newsletter">
         <label class="form__field">
-          <span class="mono-label">[ Nombre ]</span>
+          <span class="mono-label">Nombre</span>
           <input type="text" name="name" required autocomplete="given-name" />
         </label>
         <label class="form__field">
-          <span class="mono-label">[ Email ]</span>
+          <span class="mono-label">Email</span>
           <input type="email" name="email" required autocomplete="email" />
         </label>
         <button type="submit" class="form__submit">Suscribirme →</button>
@@ -67,12 +67,12 @@ import Layout from '~/layouts/Layout.astro';
   }
   .form__field input:focus {
     outline: none;
-    border-color: var(--made-accent);
+    border-color: var(--made-blue);
   }
   .form__submit {
     margin-top: 8px;
     background: var(--made-ink);
-    color: var(--made-paper);
+    color: var(--made-bg);
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     text-transform: uppercase;
@@ -82,7 +82,7 @@ import Layout from '~/layouts/Layout.astro';
     transition: background var(--t-fast) var(--ease-out);
   }
   .form__submit:hover {
-    background: var(--made-accent);
+    background: var(--made-blue);
   }
   .form__note {
     font-family: var(--font-mono);

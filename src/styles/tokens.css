@@ -1,38 +1,43 @@
 /* MADE — Design Tokens
- * Paraguas: neutros editoriales + acento institucional
- * Subset MW: paleta cultural solo en módulos de festival
- * Subset Biz: paleta sobria solo en /empresas
+ * Paleta heredada del ecosistema MADE (work.made-mx.com).
+ * Azul eléctrico primario (mismo del logo), off-white frío,
+ * near-black, más colores acento (lime, orange, pink, green, magenta).
  */
 
 :root {
-  /* === NEUTROS — paraguas MADE permanente === */
-  --made-paper: #f5f2ec;
-  --made-paper-soft: #ede8dd;
-  --made-ink: #0f0f0e;
-  --made-ink-soft: #2a2a28;
-  --made-mute: #6b6862;
-  --made-line: #1a1a18;
+  /* === Base · paraguas MADE === */
+  --made-bg: #f9f9fb;          /* off-white frío, fondo principal */
+  --made-bg-soft: #f0f0f4;     /* superficie alterna (cards, sections) */
+  --made-bg-mute: #e6e6ec;     /* divisores, borders suaves */
+  --made-ink: #1c1c1c;         /* texto, headlines */
+  --made-ink-soft: #2e2e2e;    /* texto cuerpo */
+  --made-mute: #707080;        /* metadatos, captions */
+  --made-line: #1c1c1c;        /* bordes fuertes */
 
-  /* === ACENTO institucional — uso quirúrgico (CTAs prioritarios, errores) === */
-  --made-accent: #e63a11;
+  /* === Primario · el azul de MADE === */
+  --made-blue: #0f2ee0;        /* azul eléctrico, color de la marca */
+  --made-blue-soft: #4257e8;   /* hover variant */
 
-  /* === MADE WEEK — solo módulos de festival activo === */
-  --mw-citrus: #f2c744;
-  --mw-clay: #d26a3f;
-  --mw-jade: #2e6b5a;
-  --mw-sky: #6b91d4;
-  --mw-rose: #e8a6a0;
+  /* === Acentos · paleta MADE Week === */
+  --made-lime: #bdff00;
+  --made-green: #1dcc7f;
+  --made-orange: #ff7728;
+  --made-pink: #ffc2d8;
+  --made-magenta: #e6357a;
+  --made-cyan: #00b6d4;
+  --made-red: #ed4747;
 
-  /* === EMPRESAS — sobrio, alejado del festival === */
-  --biz-graphite: #1f1f1d;
-  --biz-cream: #f0ebdf;
+  /* === Inversos (modo oscuro selectivo) === */
+  --made-night: #0a0a0a;
+  --made-cream: #f5f0e6;
 
   /* === Fondos / superficies semánticos === */
-  --bg: var(--made-paper);
-  --bg-alt: var(--made-paper-soft);
+  --bg: var(--made-bg);
+  --bg-alt: var(--made-bg-soft);
   --fg: var(--made-ink);
   --fg-soft: var(--made-ink-soft);
   --fg-mute: var(--made-mute);
+  --accent: var(--made-blue);
 
   /* === Tipografía === */
   --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -61,9 +66,10 @@
   --pad-x: clamp(20px, 4vw, 80px);
   --grid-gap: 24px;
 
-  /* === Radii (uso mínimo, casi cero) === */
+  /* === Radii (uso mínimo) === */
   --radius-sm: 2px;
   --radius-md: 4px;
+  --radius-lg: 16px;
 
   /* === Motion === */
   --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
@@ -71,6 +77,3 @@
   --t-base: 250ms;
   --t-slow: 600ms;
 }
-
-/* Modo oscuro: opt-in solo cuando el usuario lo pide en el sistema.
- * Por ahora dejamos solo claro como default. Toggle se agrega cuando se decida. */
