@@ -88,7 +88,7 @@ const recap = [
   <section class="verticals">
     <div class="container">
       <span class="mono-label mono-label--ink">Qué hacemos</span>
-      <h2 class="verticals__heading">Tres frentes,<br />una misma idea.</h2>
+      <h2 class="verticals__heading">Dos frentes,<br />una misma idea.</h2>
       <div class="verticals__grid">
         <article class="vertical vertical--festival">
           <span class="mono-label">Festival</span>
@@ -102,12 +102,6 @@ const recap = [
           <h3>MADE Work</h3>
           <p>El epicentro del talento creativo en México. Empleos, perfiles y oportunidades para la comunidad.</p>
           <a href="https://work.made-mx.com" class="vertical__link" rel="noopener">Ver MADE Work ↗</a>
-        </article>
-
-        <article class="vertical vertical--soon">
-          <span class="mono-label">Próximamente</span>
-          <h3>AleaModa</h3>
-          <p>Iniciativa de moda co-creada con FC Agency y sopadeletras®. Pasarela en octubre.</p>
         </article>
       </div>
     </div>
@@ -261,7 +255,7 @@ const recap = [
 
   .verticals__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
 
@@ -281,11 +275,6 @@ const recap = [
 
   .vertical--work {
     border-top-color: var(--made-blue);
-  }
-
-  .vertical--soon {
-    border-top-color: var(--made-mute);
-    opacity: 0.7;
   }
 
   .vertical:hover {
