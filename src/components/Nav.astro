@@ -40,9 +40,9 @@ const current = Astro.url.pathname;
     position: sticky;
     top: 0;
     z-index: 50;
-    background: color-mix(in oklab, var(--bg) 92%, transparent);
-    backdrop-filter: saturate(140%) blur(8px);
-    border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+    background: color-mix(in oklab, var(--bg) 55%, transparent);
+    backdrop-filter: saturate(150%) blur(14px);
+    -webkit-backdrop-filter: saturate(150%) blur(14px);
   }
 
   .nav__inner {
@@ -50,7 +50,7 @@ const current = Astro.url.pathname;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    padding-block: 16px;
+    padding-block: 14px;
   }
 
   .nav__brand {
@@ -76,18 +76,27 @@ const current = Astro.url.pathname;
     text-transform: uppercase;
     letter-spacing: var(--tr-mono-label);
     color: var(--made-blue);
-    padding-block: 4px;
-    border-bottom: 1px solid transparent;
-    transition: color var(--t-fast) var(--ease-out), border-color var(--t-fast) var(--ease-out);
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: transparent;
+    text-decoration: none;
+    transition: background var(--t-fast) var(--ease-out), color var(--t-fast) var(--ease-out);
   }
 
   .nav__link:hover {
-    color: var(--made-blue-soft);
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0;
   }
 
   .nav__link--active {
-    color: var(--made-blue);
-    border-bottom-color: var(--made-blue);
+    background: var(--made-blue);
+    color: var(--made-bg);
+  }
+
+  .nav__link--active:hover {
+    text-decoration: line-through;
+    text-decoration-color: var(--made-bg);
   }
 
   @media (max-width: 720px) {
